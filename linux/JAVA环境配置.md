@@ -1,7 +1,5 @@
 # JAVA环境配置
 
-[TOC]
-
 ## 一、下载
 
 [JDK下载地址](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
@@ -55,13 +53,13 @@ bash: java: command not found...
 
 ## 六、配置环境变量
 
-1. 编辑系统环境变量文件：/etc/profile
+编辑系统环境变量文件：/etc/profile
 
-``` shell
-[user@localhost ~]$ sudo vi /etc/profile
-```
+ ``` shell
+ [user@localhost ~]$ sudo vi /etc/profile
+ ```
 
-2. 到最底部，加入如下内容：
+到最底部，加入如下内容：
 
 > #set java environment  
 > export JAVA_HOME=/usr/local/jdk1.8.0_191  
