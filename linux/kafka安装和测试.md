@@ -4,7 +4,7 @@
 
 ### 一、下载和解压 压缩包
 
-Apache官网：http://kafka.apache.org/downloads.html
+[Apache官网](http://kafka.apache.org/downloads.html)
 
 下载命令：wget
 
