@@ -42,3 +42,11 @@ grant all privileges on databasename.* to 'username'@'127.0.0.1';
 ```
 
 则只有当用户通过127.0.0.1登录数据库时才能看到databasename这个数据库
+
+### 4.修改密码
+
+直接设置表密码
+
+``` shell
+UPDATE user SET password=password('<yourpassword>') WHERE user='root';
+```

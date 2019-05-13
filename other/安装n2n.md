@@ -16,8 +16,15 @@ git checkout 2.4-stable  # 切换分支
 
 ## 安装编译工具
 
+ubuntu:
+
 ``` shell
 apt-get install subversion build-essential libssl-dev
+```
+
+centos:
+``` shell
+yum install cmake openssl openssl-devel gcc
 ```
 
 ## 编译
