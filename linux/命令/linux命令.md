@@ -19,3 +19,9 @@ echo -e "\033[31m 你的数据库密码是 $DB_PASSWORD \033[0m"  # 打印出来
 ``` shell
 ssh-keygen  # 重新生成本机公钥和私钥
 ```
+
+## 查看信息
+
+``` shell
+cat /etc/*-release
+```
