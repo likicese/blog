@@ -49,4 +49,5 @@ grant all privileges on databasename.* to 'username'@'127.0.0.1';
 
 ``` shell
 UPDATE user SET password=password('<yourpassword>') WHERE user='root';
+flush privileges;
 ```

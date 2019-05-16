@@ -25,3 +25,11 @@ ssh-keygen  # 重新生成本机公钥和私钥
 ``` shell
 cat /etc/*-release
 ```
+
+## wget
+
+某些网站设置检查，只有通过浏览器才能下载文件。加入下列参数，即可模拟浏览器
+
+``` shell
+wget --no-check-certificate --user-agent="Mozilla/5.0 (X11;U;Linux i686;en-US;rv:1.9.0.3) Geco/2008092416 Firefox/3.0.3" https://storage.googleapis.com/harbor-releases/release-1.7.0/harbor-offline-installer-v1.7.5.tgz
+```
