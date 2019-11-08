@@ -11,4 +11,5 @@
 ``` shell
 useradd -r <userName>  # 创建系统用户，此时不会在/home文件夹下创建用户文件夹
 useradd -M <userName>  # 创建普通用户，不在/home文件夹下创建用户文件夹
+usermod -G <groupName> <userName>  # 用户添加有效用户组。即用户加入其他组。
 ```
