@@ -39,6 +39,14 @@ update tableName set colName1 = "value" where colName2 = "value"  # 更新表数
 select * from tableName  # 查
 ```
 
+## 特殊select语句
+
+mysql时间格式化说明：<https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format>
+
+``` sql
+SELECT SUM(column1), GROUP_CONCAT(DATE_FORMAT(columnData,'%Y-%M')) FROM test_1 GROUP BY DATE_FORMAT(columnData,'%Y-%M')  # 按月分组
+```
+
 ## 其它操作
 
 ``` sql
