@@ -39,3 +39,51 @@ cat /proc/filesystems  # 已加载到内存支持的文件系统
 ``` bash
 xfs_info /dev/vda1  # 查看xfs文件系统的信息
 ```
+
+## 文件系统的操作
+
+### 简单命令
+
+``` bash
+df -T  # 显示分区类型
+du  # 计算使用的磁盘空间
+```
+
+### 软硬链接
+
+#### 硬连接
+
+在某个目录下，新增一个inode和文件名的关联
+
+限制：不能跨文件系统、不能链接目录
+
+``` bash
+ln sourceFile LinkName
+```
+
+#### 软连接
+
+相当于创建快捷方式
+
+软连接文件的大小取决于源文件的文件名长度
+
+``` bash
+ln -s sourceFile LinkName
+```
+
+#### 新建目录
+
+新建目录时，目录上层连接 +1（folderLink），目录自己+2（.和..）
+
+### 磁盘
+
+#### 查看
+
+``` bash
+lsblk [-dfimpt] [device]  # 查看存储设备
+blkid  # 列出设备UUID
+parted deviceName print  # 列出磁盘信息
+parted /dev/vda print
+```
+
+#### 分区
