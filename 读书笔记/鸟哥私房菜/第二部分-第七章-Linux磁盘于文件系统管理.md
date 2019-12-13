@@ -87,3 +87,44 @@ parted /dev/vda print
 ```
 
 #### 分区
+
+``` bash
+gdisk /dev/vda  # 开始分区。键入"?"可以查看帮助，"q"退出，"w"写入。
+
+partprobe [-s]  # 分区完成后，此命令主动更新内核分区表的信息。否则，需要重启。
+```
+
+`fdisk` 命令使用`m`来获取帮助信息
+
+#### 格式化
+
+``` bash
+mkfs -t xfs /dev/vda4  # 和下边的是一样的
+mkfs.xfs /dev/vda4  # 都使用默认值的格式化。较重要的是inode和区块大小的数值
+```
+
+#### 文件系统校验
+
+1. xfs_repair
+
+用`xfs_repair`校验时，需要卸载该设备
+
+``` bash
+# -n 检查而不修改
+# -f 后边的其实是个文件
+xfs_repair /dev/vda1
+```
+
+2. fsck.ext4
+
+``` bash
+dumpe2fs /dev/vda1 | grep "Blocks per"  # 寻找超级区块的位置。显示8192，则下语句
+fsck.ext4 -b 8192 /dev/vda5  # 以找到的第二个超级区块去校验它
+```
+
+#### 挂载系统
+
+``` bash
+mount -a  #　将　/etc/fstab 文件内的盘悉数挂载
+mount -UUID="xxxxxxxxxxxxxxxxxx" /mnt/usb  # 注意，/mnt/usb
+```
