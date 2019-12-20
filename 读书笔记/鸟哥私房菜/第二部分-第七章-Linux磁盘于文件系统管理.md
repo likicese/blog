@@ -124,7 +124,64 @@ fsck.ext4 -b 8192 /dev/vda5  # 以找到的第二个超级区块去校验它
 
 #### 挂载系统
 
+一个目录挂载磁盘后，原目录内文件将会暂时“消失”。解挂后才会出现
+
 ``` bash
 mount -a  #　将　/etc/fstab 文件内的盘悉数挂载
-mount -UUID="xxxxxxxxxxxxxxxxxx" /mnt/usb  # 注意，/mnt/usb
+mount -UUID="xxxxxxxxxxxxxxxxxx" /mnt/usb  # 注意，/mnt/usb为自己建立的目录
+mount -n  # 强制将挂载情况写入/etc/mtab文件
+mount --bind /dirSource /dirName  # 将目录挂载给目录
+```
+
+``` bash
+umount -n /mnt/usb  # 不更新/etc/mtab的情况下卸载
+```
+
+``` bash
+# b 外接存储设备文件
+# c 外接输入设备文件
+# p FIFO先入先出设备文件
+# Major 主要设备代码 252 。 Minor 次要设备代码 10
+mknod /dev/vad10 b 252 10  # 
+```
+
+修改Label或者uuid
+
+``` bash
+# 列出label或uuid。
+xfs_admin [-lu] [-L label] [-U uuid] 设备文件名  # xfs文件系统
+uuidgen  # 生成uuid
+```
+
+``` bash
+tune2fs  [-l] [-L label] [-U uuid] 设备文件名  # ext4文件系统
+```
+
+进入单人维护模式时强制挂载
+
+``` bash
+mount -n -o remount,rw /
+```
+
+特殊设备挂载：用于挂载光盘、ISO文件时
+
+``` bash
+mount -o loop /tmp/centos.iso /mnt/floderName
+```
+
+#### 内存交换分区的创建
+
+分区创建swap
+
+``` bash
+gdisk /dev/vda  # 分区。要求输入GUID的时候，输入8200
+mkswap /dev/vda6  # 格式化为swap
+swapon /dev/vda6  # 挂载swap
+swapon -s  # 查看当前挂载状况
+```
+
+文件创建swap
+
+``` bash
+
 ```
