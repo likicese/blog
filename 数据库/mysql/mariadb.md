@@ -9,6 +9,8 @@ mariadb的安装比较简单。无脑`yum install`即可
 yum -y install mariadb mariadb-devel mariadb-server  # 安装mariadb
 systemctl enable mariadb  # 设置开机启动
 systemctl start mariadb  # 启动mariadb
+
+service mysql start  # 另一种启动mariadb的方式
 ```
 
 ## 注意的点
@@ -50,4 +52,10 @@ grant all privileges on databasename.* to 'username'@'127.0.0.1';
 ``` shell
 UPDATE user SET password=password('<yourpassword>') WHERE user='root';
 flush privileges;
+```
+
+### 5.开启远程访问
+
+``` bash
+nano /etc/mysql/mariadb.conf.d/50-server.cnf  # 该文件中，指定只监听本地端口，所以要注释掉 bind-address 项
 ```
