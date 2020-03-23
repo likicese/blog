@@ -1,0 +1,57 @@
+FROM debian
+
+COPY ./nginx-1.17.81.tar.gz /opt/ 
+
+RUN \
+	# 设置时间
+	rm /etc/localtime ;\
+	ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime ;\
+
+	# 修改apt源
+	rm -f /etc/apt/sources.list ;\
+	echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian buster main" >> /etc/apt/sources.list ;\
+	echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main" >> /etc/apt/sources.list ;\
+	echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian buster-updates main" >> /etc/apt/sources.list ;\
+
+	# 安装编译nginx需要的组件
+	apt update ;\
+	apt install -y make gcc libpcre3 libpcre3-dev zlib1g-dev ;\
+
+	# 以四线程开始编译nginx
+	cd /opt/ ;\
+	tar -xf nginx-1.17.81.tar.gz ;\
+	cd nginx-1.17.8 ;\
+	./configure ;\
+	make -j4 ;\
+	make install ;\
+
+	# nginx以www-data用户访问文件，避免被无权限访问
+    chown www-data:www-data -R /usr/local/nginx/html/ ;\
+
+	# 清理不需要的软件和文件
+    apt remove -y --purge make gcc libpcre3-dev zlib1g-dev ;\
+    apt clean ;\
+    cd /opt ;\
+    rm -rf /opt/nginx-1.17.81.tar.gz /opt/nginx-1.17.8/
+
+RUN \
+	# 安装PHP，并修改PHP的配置文件
+	apt update ;\
+	apt install -y php7.3 php7.3-fpm lsb-base php7.3-mbstring php7.3-gd php7.3-mysqli php7.3-json php7.3-zip php7.3-imagick;\
+	apt clean ;\
+	sed -i -e 's/memory_limit = 128M/memory_limit = 256M/g' \
+        -e 's/post_max_size = 8M/post_max_size = 100M/g' \
+        -e 's/upload_max_filesize = 2M/upload_max_filesize = 20M/g' \
+        -e 's/max_execution_time = 30/max_execution_time = 200/g' /etc/php/7.3/fpm/php.ini ;\
+
+	# 编写容器启动脚本
+	echo "#!/bin/bash" >> /opt/start.sh ;\
+	echo "service php7.3-fpm start" >> /opt/start.sh ;\
+	echo "/usr/local/nginx/sbin/nginx -g 'daemon off;'" >>  /opt/start.sh ;\
+
+	chmod u+x /opt/start.sh
+
+# 复制nignx的配置文件到镜像内部
+COPY ./nginx-php.conf /usr/local/nginx/conf/nginx.conf	
+
+ENTRYPOINT ["/opt/start.sh"]
