@@ -12,8 +12,10 @@ mysql：8.0.15
 mysql：<https://dev.mysql.com/downloads/mysql/>  
 iksemel：<https://centos.pkgs.org/7/puias-unsupported-x86_64/iksemel-1.4-6.sdl7.x86_64.rpm.html>
 
-``` shell
-[root@localhost mysql]# wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.15-1.el7.x86_64.rpm-bundle.tar
+``` bash
+wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.15-1.el7.x86_64.rpm-bundle.tar
+
+wget http://mirrors.sohu.com/mysql/MySQL-8.0/mysql-8.0.19-1.el7.x86_64.rpm-bundle.tar  # 国内的下载连接
 ```
 
 ### 2、卸载mariadb相关的东西
