@@ -5,3 +5,13 @@
 此脚本为监控脚本。主要是监控外网ip是否发生变化。
 
 请主动在目录下创建ip.txt文件。当文件ip地址发生变化的时候，会自动更新该文件。
+
+## 创建定时任务
+
+``` bash
+crontab -e  # 编辑定时任务
+```
+
+加入如下语句
+
+*/5 * * * * /home/pi/script/external_ip_monitor/monitor_ip.py >> /home/pi/script/external_ip_monitor/monitor_ip.log
