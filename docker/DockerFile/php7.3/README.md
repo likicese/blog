@@ -35,6 +35,16 @@ docker run --name php73 -v /data/nginx-php/logs/:/usr/local/nginx/logs/ -v /data
 
 ``` bash
 chown www-data:www-data -R /data/nginx-php/html/
+
+# 重命名Lychee
+mv Lychee-v3.2.16 lychee
 ```
 
-在浏览器中打开相应目录即可
+在浏览器中打开
+http://宿主机IP:8011/lychee
+
+## 数据库
+
+打开lychee后，他会让你输入数据库地址、用户名、密码。若数据库安装在宿主机上，数据库地址即容器的网关IP。
+
+请注意。数据库应该允许外网访问。因为这不是装在同一容器中。mariadb默认不允许外网访问，应该进行特殊的设置。
