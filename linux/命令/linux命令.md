@@ -53,3 +53,9 @@ curl baidu.com/path/show -I -w %{http_code} -o /dev/null -s -m 5  # 获取网页
 ``` bash
 wget --http-user=userName --http-passwd=passWord https://test.com/fileName.txt  # 用于度过http中的auth验证
 ```
+
+## ssh
+
+``` bash
+ssh -o stricthostkeychecking=no  # 首次登陆免输入yes
+```
