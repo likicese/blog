@@ -28,3 +28,9 @@ git reset --hard HEAD^  # 丢弃上一次本地提交
 ``` bash
 git config --local credential.helper store  # 执行该命令后，该项目下，只需要输入一次密码，就会被记住。密码以明文方式存储在本地
 ```
+
+## git pull
+
+``` bash
+git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch 'dev' of git@gitlab.1chemic.com:sales/crm.git into dev ” 这种提交
+```
