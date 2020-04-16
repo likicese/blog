@@ -20,7 +20,9 @@ git config --global --unset user.email  # 清除全局邮箱名
 ## 重置操作
 
 ``` bash
-git reset --hard HEAD^  # 丢弃上一次本地提交
+git reset --mixed HEAD^  # 不删除工作空间改动代码，撤销commit，撤销add。默认值
+git reset --hard HEAD^  # 不删除工作空间改动代码，撤销commit，撤销add
+git reset --soft HEAD^  # 删除工作空间改动代码，撤销commit，保留add
 ```
 
 ## 记住密码
