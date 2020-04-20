@@ -41,3 +41,9 @@ git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch '
 ``` bash
 git merge dev  # 从dev分支将代码merge到当前分支
 ```
+
+## git remote
+``` bash
+git remote  # 列出所有主机
+git remote  # 列出主机网址
+```
