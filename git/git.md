@@ -45,5 +45,6 @@ git merge dev  # 从dev分支将代码merge到当前分支
 ## git remote
 ``` bash
 git remote  # 列出所有主机
-git remote  # 列出主机网址
+git remote -v  # 列出主机网址
+git remote add staging https://github.com/xxx/xxx.git  # 抓取一个远程分支
 ```
