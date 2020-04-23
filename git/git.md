@@ -49,3 +49,8 @@ git remote -v  # 列出主机网址
 git remote add staging https://github.com/xxx/xxx.git  # 添加一个远程分支
 git fetch staging  # 抓取一个远程分支
 ```
+
+## git checkout
+``` bash
+git checkout fileName  # 将文件回退到没有提交的版本
+```
