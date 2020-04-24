@@ -53,4 +53,6 @@ git fetch staging  # 抓取一个远程分支
 ## git checkout
 ``` bash
 git checkout fileName  # 将文件回退到没有提交的版本
+git checkout dev  # 将工作分支切到dev，并且追踪远程分支
+git checkout -b dev  # 本地新建dev分支
 ```
