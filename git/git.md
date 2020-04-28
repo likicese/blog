@@ -3,6 +3,7 @@
 ## 基础操作
 
 ``` bash
+git init  # 初始化仓库
 git clone 
 git add .
 git commit -m "提交说明"
