@@ -15,3 +15,24 @@
 [settings.json 配置参数](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md)
 
 [主题参考](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/windowsterminal)
+
+## profile
+
+``` json
+"tabTitle":"str",  /* 用str覆盖name属性的内容 */
+"suppressApplicationTitle": true,  /* 禁止应用程序消息修改tabTitle属性的内容 */
+
+"useAcrylic":true,  /* 鼠标在terminal上时，会模糊。移开则清晰 */
+```
+
+## 快捷键
+
+### 窗口拆分
+
+shift + alt + + ：向右拆分
+
+shift + alt + - ：向下拆分
+
+alt + up|down|left|right ：向左拆分
+
+alt + up|down|left|right ：向右拆分
