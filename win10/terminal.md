@@ -19,6 +19,8 @@
 ## profile
 
 ``` json
+"scrollbarState":"visible",  /* 隐藏右侧的滚动条，hidden或者visible */
+
 "tabTitle":"str",  /* 用str覆盖name属性的内容 */
 "suppressApplicationTitle": true,  /* 禁止应用程序消息修改tabTitle属性的内容 */
 
