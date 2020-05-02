@@ -58,4 +58,4 @@ wget --http-user=userName --http-passwd=passWord https://test.com/fileName.txt  
 
 ``` bash
 ssh -o stricthostkeychecking=no  # 首次登陆免输入yes
-```
+``` 
