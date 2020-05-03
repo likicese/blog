@@ -62,3 +62,9 @@ git checkout -b dev  # 本地新建dev分支
 ``` bash
 git branch branchName  # 新建分支
 ```
+
+## git log
+
+``` bash
+git log fileName  # 查看特定文件的提交日志
+```
