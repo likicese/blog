@@ -67,4 +67,5 @@ git branch branchName  # 新建分支
 
 ``` bash
 git log fileName  # 查看特定文件的提交日志
+git log userName  # 显示userName用户提交的日志
 ```
