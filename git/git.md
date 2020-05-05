@@ -40,7 +40,7 @@ git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch '
 
 ## git merge
 ``` bash
-git merge dev  # 从dev分支将代码merge到当前分支
+git merge dev  # 将dev分支代码merge到当前分支
 ```
 
 ## git remote
@@ -61,11 +61,17 @@ git checkout -b dev  # 本地新建dev分支
 ## git branch
 ``` bash
 git branch branchName  # 新建分支
+git branch -d dev  # 删除本地名为dev的分支
 ```
 
 ## git log
 
 ``` bash
 git log fileName  # 查看特定文件的提交日志
-git log userName  # 显示userName用户提交的日志
+git log --author userName  # 显示userName用户提交的日志
+```
+
+## git push
+``` bash
+git push origin --delete dev  # 删除远程名为dev分支的代码
 ```
