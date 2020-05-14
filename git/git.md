@@ -88,3 +88,8 @@ git apply @{x}  # 将一个特定的暂存取出
 git diff  # 查看修改内容
 git diff <fileName>  # 比较暂存区文件和当前文件的差异
 ```
+
+## git config
+``` bash
+git config --global core.editor "vim"  # 设置vim为编辑器
+```
