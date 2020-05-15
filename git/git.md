@@ -32,6 +32,15 @@ git reset --soft HEAD^  # 删除工作空间改动代码，撤销commit，保留
 git config --local credential.helper store  # 执行该命令后，该项目下，只需要输入一次密码，就会被记住。密码以明文方式存储在本地
 ```
 
+## git自动补全
+``` bash
+cd ~  # 进入家目录
+wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash  # 拉取补全文件
+mv git-completion.bash .git-completion.bash  # 隐藏在ls下的显示
+echo "source ~/.git-completion.bash" >> ~/.bashrc  # 打开shell时，加载该文件
+source ~/.bashrc  # 立即加载文件生效
+```
+
 ## git pull
 
 ``` bash
