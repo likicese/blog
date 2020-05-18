@@ -102,3 +102,9 @@ git diff <fileName>  # 比较暂存区文件和当前文件的差异
 ``` bash
 git config --global core.editor "vim"  # 设置vim为编辑器
 ```
+
+## git rebase
+
+``` bash
+git rebase --skip  # 跳过某一次补丁
+```
