@@ -90,6 +90,7 @@ git push origin --delete dev  # 删除远程名为dev分支的代码
 git stash  # 将修改保存于暂存区
 git stash pop  # 将保存于暂存区的修改取出
 git apply @{x}  # 将一个特定的暂存取出
+git stash list  # 查看暂存区的修改
 ```
 
 ## git diff
