@@ -110,3 +110,8 @@ git config --global core.editor "vim"  # 设置vim为编辑器
 git rebase --continue  # 被冲突打断后，在解决冲突的情况下，继续rabase
 git rebase --skip  # 跳过某一次补丁
 ```
+
+## git reset
+``` bash
+git reset --soft HEAD^  # 撤回commit操作
+```
