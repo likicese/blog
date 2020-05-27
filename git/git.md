@@ -116,3 +116,9 @@ git rebase --skip  # 跳过某一次补丁
 git reset --soft HEAD^  # 撤回commit操作
 git reset --hard HEAD^  # 删除提交内容
 ```
+
+## git fetch
+
+``` bash
+git fetch --all
+```
