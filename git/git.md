@@ -78,6 +78,7 @@ git branch -d dev  # 删除本地名为dev的分支
 ``` bash
 git log fileName  # 查看特定文件的提交日志
 git log --author userName  # 显示userName用户提交的日志
+git log --oneline  # 查看简洁的日志
 ```
 
 ## git push
