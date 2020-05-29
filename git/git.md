@@ -118,6 +118,12 @@ git reset --soft HEAD^  # 撤回commit操作
 git reset --hard HEAD^  # 删除提交内容
 ```
 
+## git revert HEAD
+
+``` bash
+git revert HEAD  # 新增一次提交，抵消上一次提交带来的变化
+```
+
 ## git fetch
 
 ``` bash
