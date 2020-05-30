@@ -129,3 +129,9 @@ git revert HEAD  # 新增一次提交，抵消上一次提交带来的变化
 ``` bash
 git fetch --all
 ```
+
+## git commit
+
+``` bash
+git commit --amend  # 修改commit的注释
+```
