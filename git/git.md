@@ -135,3 +135,9 @@ git fetch --all
 ``` bash
 git commit --amend  # 修改commit的注释
 ```
+
+## git rm
+
+``` bash
+git rm --cached <fileName>  # 撤销掉提交去暂存区的文件
+```
