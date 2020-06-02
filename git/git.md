@@ -98,6 +98,7 @@ git stash list  # 查看暂存区的修改
 ``` bash
 git diff  # 查看修改内容
 git diff <fileName>  # 比较暂存区文件和当前文件的差异
+git diff --stat  # 比价统计信息
 ```
 
 ## git config
