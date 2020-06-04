@@ -25,6 +25,9 @@
 "suppressApplicationTitle": true,  /* 禁止应用程序消息修改tabTitle属性的内容 */
 
 "useAcrylic":true,  /* 鼠标在terminal上时，会模糊。移开则清晰 */
+
+"cursorShape": "emptyBox",  /* 光标的形状。此值为空心状 */
+"cursorColor": "#000000",  /* 光标的颜色 */
 ```
 
 ## 快捷键
