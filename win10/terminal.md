@@ -6,6 +6,8 @@
 
 可以通过设定 `commandline` 指定开启terminal后，运行的程序，从而达到快速跳入莫一台机器的效果。
 
+文件夹中在地址栏里输入“wt”即可打开terminal
+
 ## 参考网址
 
 [所见既所得主题配置](https://terminal.sexy/)
