@@ -84,6 +84,7 @@ git log --oneline  # 查看简洁的日志
 ## git push
 ``` bash
 git push origin --delete dev  # 删除远程名为dev分支的代码
+git push origin master  # 指定本地master分支推送到远程
 ```
 
 ## git stash
