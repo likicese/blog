@@ -36,6 +36,10 @@
 
 shift + alt + w ：关闭当前标签页
 
+ctrl + shift + page-up : 向上翻页
+
+ctrl + shift + page-down : 向下翻页
+
 ### 窗口拆分
 
 shift + alt + + ：向右拆分
