@@ -6,7 +6,7 @@
 
 可以通过设定 `commandline` 指定开启terminal后，运行的程序，从而达到快速跳入莫一台机器的效果。
 
-文件夹中在地址栏里输入“wt”即可打开terminal
+文件夹中在地址栏里输入“wt”即可打开terminal (配合设置"startingDirectory" = null, 可以在当前目录下打开terminal)
 
 ## 参考网址
 
@@ -30,6 +30,8 @@
 
 "cursorShape": "emptyBox",  /* 光标的形状。此值为空心状 */
 "cursorColor": "#000000",  /* 光标的颜色 */
+
+"startingDirectory" = null,  /* 设置打开终端的目录。默认为用户目录。此设置会改为当前目录打开终端 */
 ```
 
 ## 快捷键
