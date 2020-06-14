@@ -10,4 +10,5 @@
 
 ``` bash
 iptables -nL  # 查看防火墙规则
+iptable -t filter -F  # 清空filter表规则
 ```
