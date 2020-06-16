@@ -48,6 +48,4 @@ shift + alt + + ：向右拆分
 
 shift + alt + - ：向下拆分
 
-alt + up|down|left|right ：向左拆分
-
-alt + up|down|left|right ：向右拆分
+alt + up|down|left|right ：拆分后，移动焦点所处位置
