@@ -47,6 +47,18 @@ mysql时间格式化说明：<https://dev.mysql.com/doc/refman/8.0/en/date-and-t
 SELECT SUM(column1), GROUP_CONCAT(DATE_FORMAT(columnData,'%Y-%M')) FROM test_1 GROUP BY DATE_FORMAT(columnData,'%Y-%M')  # 按月分组
 ```
 
+### 备份
+```
+mysqldump \
+-u userName \ 
+-ppassWord \
+--single-transaction  # InnoDB引擎中可用。锁住表结构。可对表中内容进行操作 \
+--flush-logs  # 数据库备份后，刷新日志 \
+--add-drop-database  # 添加删除表语句 \
+-B dbName1 dbName2  # 表名 \
+--master-data=2  # 将二进制信息写入到备份文件中 
+```
+
 ## 其它操作
 
 ``` sql
