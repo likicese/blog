@@ -51,6 +51,7 @@ git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch '
 ``` bash
 git merge dev  # 将dev分支代码merge到当前分支
 git merge dev -v  # 显示详细的合并结果信息
+git merge --abort  # 抛弃合并过程，尝试重建合并前的状态
 ```
 
 ## git remote
