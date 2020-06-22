@@ -149,3 +149,9 @@ git commit --amend  # 修改commit的注释
 ``` bash
 git rm --cached <fileName>  # 撤销掉提交去暂存区的文件
 ```
+
+## git add
+
+``` bash
+git add fileName  # 指定添加到暂存区的文件
+```
