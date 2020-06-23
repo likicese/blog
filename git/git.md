@@ -45,6 +45,7 @@ source ~/.bashrc  # 立即加载文件生效
 
 ``` bash
 git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch 'dev' of git@gitlab.1chemic.com:sales/crm.git into dev ” 这种提交
+git pull origin dev  # 推送分支到远程dev分支
 ```
 
 ## git merge
