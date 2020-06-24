@@ -112,6 +112,7 @@ git diff --stat  # 比价统计信息
 git config --global core.editor "vim"  # 设置vim为编辑器
 git config --global merge.tool <tool>  # 设置冲突解决的工具
 git config --local unset user.name  # 取消user.name 配置
+git config --list  # 列出所有的配置
 ```
 
 ## git rebase
