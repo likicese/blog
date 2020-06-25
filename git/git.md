@@ -120,6 +120,7 @@ git config --list  # 列出所有的配置
 ``` bash
 git rebase --continue  # 被冲突打断后，在解决冲突的情况下，继续rabase
 git rebase --skip  # 跳过某一次补丁
+git rebase --abort  # 终止rebase的行动
 ```
 
 ## git reset
