@@ -125,8 +125,9 @@ git rebase --abort  # 终止rebase的行动
 
 ## git reset
 ``` bash
-git reset --soft HEAD^  # 撤回commit操作
-git reset --hard HEAD^  # 删除提交内容
+git reset --soft HEAD^  # 撤回commit
+git reset --mixed  # 撤回commit和add
+git reset --hard HEAD^  # 撤回commit、add和工作区内容
 ```
 
 ## git revert HEAD
