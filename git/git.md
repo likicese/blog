@@ -105,6 +105,7 @@ git stash drop  # 删除一个缓存栈
 git diff  # 查看修改内容
 git diff <fileName>  # 比较暂存区文件和当前文件的差异
 git diff --stat  # 比价统计信息
+git diff --cached <filename>  # 暂存区和仓库进行比较
 ```
 
 ## git config
