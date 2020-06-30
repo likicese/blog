@@ -9,4 +9,7 @@ nmcli device show  # 查看设备连接状态
 # 设置静态IP
 nmcli con modify eth0 ipv4.method manual ipv4.addresses 192.168.1.2
 nmcli con up eth0  # 修改后重载才能生效
+
+
+nmcli con down eth0  # 停用网络连接
 ```
