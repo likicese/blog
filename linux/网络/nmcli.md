@@ -13,4 +13,5 @@ nmcli con up eth0  # 修改后重载才能生效
 
 
 nmcli con down eth0  # 停用网络连接
+nmcli device disconnect eth0  # 禁用网卡
 ```
