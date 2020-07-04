@@ -32,3 +32,17 @@ gitlab-ctl restart  # 重启gitlab。首次安装的时候，会初始化很多�
 firewall-cmd --zone=public --add-port=8081/tcp --permanent
 firewall-cmd --reload
 ```
+
+
+## gitlab修改root密码
+
+强制修改root密码。修改后，即可在web页面用root用户登陆
+
+``` bash
+gitlab-rails console  # 访问数据库,会卡约10s才能加载出来
+
+# 以下操作均在rails的命令行内
+user = User.where(id:1).first
+user.password='12345678'  # 密码要求最短8个字符，密码设为12345678
+user.save!
+```
