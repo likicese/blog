@@ -46,3 +46,17 @@ user = User.where(id:1).first
 user.password='12345678'  # 密码要求最短8个字符，密码设为12345678
 user.save!
 ```
+
+## gitlab-runner安装
+
+gitlab-runner可以和gitlab不安装在同一台机器上。
+
+需要保证安装gitlab-runner的机器上，git的版本较新
+
+可以参考网址https://mirrors.tuna.tsinghua.edu.cn/help/gitlab-runner ， 进行安装
+``` bash
+yum makecache
+yum install gitlab-runner -y
+
+systemctl status gitlab-runner  #确定gitlab-runner已经运行
+```
