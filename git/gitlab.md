@@ -60,3 +60,18 @@ yum install gitlab-runner -y
 
 systemctl status gitlab-runner  #确定gitlab-runner已经运行
 ```
+
+## git安装
+
+centos默认的git比较老，约为1.18版本。
+
+若是不安装新git，在使用gitlab-runner跑任务的时候，会提示 “fatal: git fetch-pack: expected shallow list”
+
+``` bash
+rpm -e --nodeps git  # 卸载老git
+rpm -e --nodeps perl-Git  # 卸载会冲突的依赖。这是在安装gitlab-runner的时候带进来的依赖。
+
+curl https://setup.ius.io | sh  # 安装ius源
+yum makecache
+yum install git224  # 安装2.24版本的git
+```
