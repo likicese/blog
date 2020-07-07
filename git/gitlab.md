@@ -75,3 +75,33 @@ curl https://setup.ius.io | sh  # 安装ius源
 yum makecache
 yum install git224  # 安装2.24版本的git
 ```
+
+## gitlab-runner的使用
+
+先去gitlab的web页面，从  项目 -> settings -> CI/CD -> Runners
+
+在 `Set up a specific Runner manually` 一栏，获取URL和token
+
+本例中，获取的URL是 “http://192.168.1.3:8081” 获取的token是 “ADEAFA_BBBBB-dddddddd”
+
+输入 `gitlab-runner register`
+
+按照提示信息输入。交互界面如下。
+
+``` bash
+Runtime platform                                    arch=amd64 os=linux pid=14166 revision=6fbc7474 version=13.1.1
+Running in system-mode.
+
+Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+http://192.168.1.3:8081
+Please enter the gitlab-ci token for this runner:
+ADEAFA_BBBBB-dddddddd
+Please enter the gitlab-ci description for this runner:
+[localhost]: gitlab-runner
+Please enter the gitlab-ci tags for this runner (comma separated):
+m
+Registering runner... succeeded                     runner=5XWBBuz-
+Please enter the executor: docker-ssh, shell, ssh, docker+machine, kubernetes, custom, parallels, virtualbox, docker-ssh+machine, docker:
+shell
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
+```
