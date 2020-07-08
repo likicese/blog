@@ -105,3 +105,11 @@ Please enter the executor: docker-ssh, shell, ssh, docker+machine, kubernetes, c
 shell
 Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 ```
+
+解释一下如上的交互界面。
+
+1. URL
+2. token
+3. runner的名字
+4. runner的标签。在写.gitlab-ci.yml的时候会用到
+5. runner执行job的时候用到的控件。此处设定为shell
