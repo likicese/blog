@@ -112,8 +112,10 @@ git diff --cached <filename>  # 暂存区和仓库进行比较
 ``` bash
 git config --global core.editor "vim"  # 设置vim为编辑器
 git config --global merge.tool <tool>  # 设置冲突解决的工具
+git config core.filemode false  # 忽略文件属性改变。默认会跟踪文件属性改变
 git config --local unset user.name  # 取消user.name 配置
 git config --list  # 列出所有的配置
+
 ```
 
 ## git rebase
