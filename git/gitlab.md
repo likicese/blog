@@ -113,3 +113,38 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 3. runner的名字
 4. runner的标签。在写.gitlab-ci.yml的时候会用到
 5. runner执行job的时候用到的控件。此处设定为shell
+
+刷新项目的 settings -> CI/CD ，可以看到有个新的runner注册成功
+
+## 编写.gitlab-ci.yml
+
+在项目的根目录下，编写 `.gitlab-ci.yml` 文件，文件内容如下
+
+``` yml
+# 定义阶段 stages
+stages:
+  - build
+  - deploy
+
+job1 - 开始构建:
+  # 开始之前需要安装依赖
+  stage: build
+  tags:
+    - m
+  script:
+    - echo "构建完毕"
+    - pwd
+
+job2 - 开始发布:
+  stage: deploy
+  tags:
+    - m
+  script:
+    - echo "发布完毕"
+```
+
+因为runner在注册的时候定义了tags，其值为“m”。所以在yml文件中，需要tags为“m”执行的runner需要显式定义
+
+以上定义了两个任务。在代码变动的时候，会按序执行job。
+
+可以试着更改并push代码，然后在项目的web页面中，左侧部位，CI/CD可以看到job的执行结果
