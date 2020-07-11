@@ -13,3 +13,9 @@ chronyc sources -v  # 查看时间同步源状态
 
 ```
 
+## debian系更改时区
+
+``` bash
+dpkg-reconfigure tzdata
+```
+
