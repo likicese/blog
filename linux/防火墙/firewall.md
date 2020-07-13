@@ -21,4 +21,5 @@ systemctl start firewalld  # 启动服务
 ``` shell
 firewall-cmd --zone=public --add-port=80/tcp --permanent  # 添加80端口
 firewall-cmd --reload  # 重启防火墙
+firewall-cmd --add-masquerade --permanent  # 开启端口转发
 ```
