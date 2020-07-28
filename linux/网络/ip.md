@@ -13,6 +13,8 @@ ip address del 192.168.1.10/24 eth0  # 给eth0网卡删除一个IP地址
 
 ``` bash
 ip route show  # 显示全部的路由表
+ip route show dev eth0  # 查看该接口的路由
+
 ```
 
 ## ip link
@@ -20,8 +22,9 @@ ip route show  # 显示全部的路由表
 ``` bash
 ip link set eth0 up  # 启用网卡
 ip link set eth0 down  # 禁用网卡
+ip link set dev eth0 name new_name  # 重命名接口
 ```
 
 ## ip rule
 
-## addrlable
+## ip addrlable
