@@ -16,6 +16,8 @@ ip address flush dev eth0  # 清空eth0网卡所有的IP地址
 ip route show  # 显示全部的路由表
 ip route show dev eth0  # 查看该接口的路由
 
+ip route change default dev eth0 src 192.168.1.2  # 修改原来的默认路由 。 注意，原来路由为 via 192.168.1.1  意为走网关。该修改生效后，可能数据包找不到网关
+ip route add to 192.168.2.3/32 dev eth0 src 192.168.1.2  # 添加一条前往192.168.2.3的路由表。从192.168.1.2口出去
 ```
 
 ## ip link （链路层信息）
