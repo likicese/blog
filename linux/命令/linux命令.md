@@ -59,3 +59,10 @@ wget --http-user=userName --http-passwd=passWord https://test.com/fileName.txt  
 ``` bash
 ssh -o stricthostkeychecking=no  # 首次登陆免输入yes
 ``` 
+
+## attr相关
+
+``` bash
+lsattr  # 显示当前文件夹下，文件的额外属性
+chattr -i <fileName>  # 排掉改文件不可修改的属性
+```
