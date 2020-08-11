@@ -27,4 +27,6 @@ firewall-cmd --add-masquerade --permanent  # 开启端口转发
 firewall-cmd --permanent --add-rich-rule="rule family='ipv4' source address='192.168.1.2' accept"  # 添加一个IP为信任。IP段可用192.168.1.0/24\
 
 firewall-cmd --get-active-zones  # 查看激活的域
+
+firewall-cmd --add-forward-port=port=8081:proto=tcp:toport=80 #  将8081转发到80
 ```
