@@ -19,6 +19,7 @@ systemctl start firewalld  # 启动服务
 ## 基本操作
 
 ``` shell
+firewall-cmd --state  # 显示当前状态状态
 firewall-cmd --zone=public --add-port=80/tcp --permanent  # 添加80端口
 firewall-cmd --reload  # 重启防火墙
 firewall-cmd --zone=public --remove-port=80/tcp --permanent  # 删除80端口
