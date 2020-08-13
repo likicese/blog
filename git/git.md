@@ -14,6 +14,10 @@ git push
 ## 疑难操作
 
 ``` bash
+# 本地新建分支并推送到远程分支
+git checkout -b dev-local
+git push origin dev-local:dev  # 不建议不同名字。此操作会在远程新建一个dev分支
+
 git config --global --unset user.name  # 清除全局用户名
 git config --global --unset user.email  # 清除全局邮箱名
 ```
