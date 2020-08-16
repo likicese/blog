@@ -1,5 +1,11 @@
 # ansible
 
+## host
+``` config
+[testhost1]
+192.168.1.[1:100]  # 表示为1~100的IP地址
+```
+
 ## 命令
 
 ``` bash
