@@ -4,6 +4,11 @@
 ``` config
 [testhost1]
 192.168.1.[1:100]  # 表示为1~100的IP地址
+
+[testhost2]
+ansible_ssh_port=2222  # 整组通用属性
+ansible_ssh_user=admin
+192.168.1.10
 ```
 
 ## 命令
