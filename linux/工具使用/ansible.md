@@ -8,7 +8,11 @@
 [testhost2]
 ansible_ssh_port=2222  # 整组通用属性
 ansible_ssh_user=admin
+ansible_ssh_pass  # ssh的密码
+ansible_sudo_pass  # sudo的密码
+
 192.168.1.10
+host[a-z]
 ```
 
 ## 命令
