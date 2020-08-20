@@ -11,15 +11,19 @@ git pull
 git push
 ```
 
-## 疑难操作
+## 常用操作
 
 ``` bash
 # 本地新建分支并推送到远程分支
 git checkout -b dev-local
 git push origin dev-local:dev  # 不建议不同名字。此操作会在远程新建一个dev分支
 
-git config --global --unset user.name  # 清除全局用户名
-git config --global --unset user.email  # 清除全局邮箱名
+# 将本地分支关联到远程分支
+cd youProject
+git remote rename origin old-origin  # 将原先远程仓库： origin    重命名为： old-origin
+git remote add origin https://gitlab.github.com/xxxx/xxxx.git
+git push -u origin --all
+git push -u origin --tags
 ```
 
 ## 重置操作
