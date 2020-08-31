@@ -32,6 +32,8 @@
 "cursorColor": "#000000",  /* 光标的颜色 */
 
 "startingDirectory" = null,  /* 设置打开终端的目录。默认为用户目录。此设置会改为当前目录打开终端 */
+
+"largePasteWarning": false,  /* 禁用粘贴文字大于5KB时的提醒框 */
 ```
 
 ## 快捷键
@@ -49,3 +51,9 @@ shift + alt + + ：向右拆分
 shift + alt + - ：向下拆分
 
 alt + up|down|left|right ：拆分后，移动焦点所处位置
+
+## 不熟悉的地方
+
+### vim后自动进入Replace模式
+
+请打开powershell，把 `选项 -> 快速编辑模式` 的勾选去掉
