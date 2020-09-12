@@ -17,3 +17,8 @@ iptables -F
 iptables -X
 iptables -Z
 ```
+
+``` bash
+iptables -L INPUT --line-numbers  # 打印规则序号
+iptables -D INPUT 6  # 删除一条规则，6为上一句打出的规则序号
+```
