@@ -34,6 +34,7 @@
 "startingDirectory" = null,  /* 设置打开终端的目录。默认为用户目录。此设置会改为当前目录打开终端 */
 
 "largePasteWarning": false,  /* 禁用粘贴文字大于5KB时的提醒框 */
+"multiLinePasteWarning": false,  /* 禁用粘贴文字存在换行符时的提醒框 */
 ```
 
 ## 快捷键
