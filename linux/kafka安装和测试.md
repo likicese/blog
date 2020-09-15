@@ -30,6 +30,9 @@ cd kafka_2.12-2.2.0
 
 ``` sh
 ./bin/kafka-topics.sh --create --zookeeper localhsot:2181 --replication-factor 1 --partitions 1 --topic testtopic
+
+# topic列表
+./bin/kafka-topics.sh --zookeeper localhsot:2181 --list
 ```
 
 ### 二、创建生产者
