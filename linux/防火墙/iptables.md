@@ -26,4 +26,6 @@ iptables -A INPUT -s 192.168.1.4 -p all -j ACCEPT  # 开放所有端口给该IP�
 
 iptables -I INPUT -s 123.45.6.7 -j DROP  # 屏蔽一个IP
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT  # 允许访问80端口
+
+iptables -A FORWARD -j REJECT  # 禁止未允许的规则访问
 ```
