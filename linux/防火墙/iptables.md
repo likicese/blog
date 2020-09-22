@@ -6,7 +6,17 @@
 
 五链：input、output、forward、prerouting、postrouting
 
-# 命令
+## 对数据包的处理
+
+ACCEPT 允许
+
+DROP 丢弃
+
+REJECT 拒绝，会回应一个响应
+
+LOG 先在/var/log/messages文件记录日志信息，再将包传递给下一条规则
+
+## 命令
 
 ``` bash
 iptables -nL  # 查看防火墙规则
