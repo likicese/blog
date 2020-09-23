@@ -14,6 +14,14 @@ DROP 丢弃
 
 REJECT 拒绝，会回应一个响应
 
+REDIRECT 重定向、映射、透明代理
+
+SNAT 源地址转换
+
+DNAT 目标地址转换
+
+MASQUERADE 用于nat
+
 LOG 先在/var/log/messages文件记录日志信息，再将包传递给下一条规则
 
 ## 命令
