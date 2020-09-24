@@ -24,6 +24,12 @@ MASQUERADE 用于nat
 
 LOG 先在/var/log/messages文件记录日志信息，再将包传递给下一条规则
 
+## 参数
+
+-A 向规则链中添加
+
+-D 从规则链中删除
+
 ## 命令
 
 ``` bash
