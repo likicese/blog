@@ -2,9 +2,19 @@
 
 ## 四表五链
 
-四表：filter、nat、mangle、raw
+### 四表
 
-五链：input、output、forward、prerouting、postrouting
+filter:过滤功能、防火墙
+
+nat：网络地址转换
+
+mangle：报文的拆、改、重装
+
+raw：关闭nat表的连接追踪机制
+
+### 五链
+
+input、output、forward、prerouting、postrouting
 
 ## 对数据包的处理
 
