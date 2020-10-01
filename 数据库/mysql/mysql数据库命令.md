@@ -63,4 +63,5 @@ mysqldump \
 
 ``` sql
 flush privileges;  # 刷新权限。设定用户相关后使用
+show processlist; # 显示当前执行的线程
 ```
