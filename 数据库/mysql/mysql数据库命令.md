@@ -59,6 +59,16 @@ mysqldump \
 --master-data=2  # 将二进制信息写入到备份文件中 
 ```
 
+## 锁的核心表
+
+sys.innodb_lock_waits
+
+performance_schema.events_statements_history
+
+performance_schema.data_locks
+
+performance_schema.data_locks_wait
+
 ## 其它操作
 
 ``` sql
