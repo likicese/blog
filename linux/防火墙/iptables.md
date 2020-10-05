@@ -84,4 +84,6 @@ iptables -I INPUT -s 123.45.6.7 -j DROP  # 屏蔽一个IP
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT  # 允许访问80端口
 
 iptables -A FORWARD -j REJECT  # 禁止未允许的规则访问
+
+iptables -A INPUT -i lo -j ACCEPT  # 允许环回访问
 ```
