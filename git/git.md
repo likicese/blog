@@ -172,3 +172,9 @@ git rm --cached <fileName>  # 撤销掉提交去暂存区的文件
 ``` bash
 git add fileName  # 指定添加到暂存区的文件
 ```
+
+## git status
+
+``` bash
+git status -s  # 查看文件简明情况
+```
