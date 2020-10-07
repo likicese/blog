@@ -40,6 +40,13 @@ git reset --soft HEAD^  # 删除工作空间改动代码，撤销commit，保留
 git config --local credential.helper store  # 执行该命令后，该项目下，只需要输入一次密码，就会被记住。密码以明文方式存储在本地
 ```
 
+## 从ssh切换为https
+
+``` bash
+git remote set-url --add origin htps://github.com/xxx/xxx.git
+git remote set-url --delete origin git@github.com:xxx/xxx.git
+```
+
 ## git自动补全
 ``` bash
 cd ~  # 进入家目录
