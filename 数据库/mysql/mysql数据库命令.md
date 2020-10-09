@@ -10,7 +10,9 @@
 ``` sql
 show databases;  # 查看全部数据库
 create database databaseName;  # 创建数据库
-drop database databaseName;  ## 删除数据库
+drop database databaseName;  # 删除数据库
+
+show create table dataName.tableName\G;  # 查看建表语句
 ```
 
 ## 数据表
