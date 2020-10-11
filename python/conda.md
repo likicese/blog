@@ -1,5 +1,17 @@
 # conda
 
+## 系统环境变量
+
+在环境变量中，添加：
+
+``` path
+C:\Users\All Users\Anaconda3\Scripts
+```
+
+具体路径，依据个人情况而定。
+
+添加后，打开cmd即可直接使用conda命令
+
 ## 命令
 
 ``` bash
@@ -21,4 +33,6 @@ conda deactivate
 
 # 删除环境
 conda remove -n web --all
+
+activate envName  # 切换到名为envName的环境
 ```
