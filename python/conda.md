@@ -34,5 +34,9 @@ conda deactivate
 # 删除环境
 conda remove -n web --all
 
-activate envName  # 切换到名为envName的环境
+# 切换到名为envName的环境
+activate envName
+
+# 更新
+conda update conda
 ```
