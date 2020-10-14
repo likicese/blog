@@ -27,6 +27,8 @@ conda info -e
 conda create -n web python=3.8
 conda activate web  # 进入新建名为web的环境
 
+# 切换到名为envName的环境
+activate envName
 
 # 退出当前环境
 conda deactivate
@@ -34,9 +36,12 @@ conda deactivate
 # 删除环境
 conda remove -n web --all
 
-# 切换到名为envName的环境
-activate envName
+# 复制环境
+conda create --name newEnvName --clone oldEnvName
 
 # 更新
 conda update conda
+
+# 获取版本号
+conda -V
 ```
