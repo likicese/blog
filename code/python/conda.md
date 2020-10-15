@@ -23,15 +23,17 @@ conda config --set show_channel_urls yes
 conda env list
 conda info -e
 
-# 创建新环境
-conda create -n web python=3.8
+conda create -n web python=3.8  # 创建新环境
+conda create -n web python=3.8 anaconda  # 附带安装常用的包
 conda activate web  # 进入新建名为web的环境
 
 # 切换到名为envName的环境
-activate envName
+source activate envName  # linux
+activate envName  # windows
 
 # 退出当前环境
-conda deactivate
+source deactivate  # linux
+conda deactivate  # windows
 
 # 删除环境
 conda remove -n web --all
