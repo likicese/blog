@@ -46,4 +46,9 @@ conda update conda
 
 # 获取版本号
 conda -V
+
+# 包管理，类似pip
+conda install numpy  # 安装numpy包
+conda remove numpy  # 卸载
+conda list  # 显示已安装的包
 ```
