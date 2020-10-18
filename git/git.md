@@ -89,6 +89,9 @@ git checkout -b dev  # 本地新建dev分支
 ``` bash
 git branch branchName  # 新建分支
 git branch -d dev  # 删除本地名为dev的分支
+git branch -D dev  # 强制删除本地名为dev的分支
+git branch -v  # 列出本地所有分支，当前分支会带上“*”
+git branch -m oldBranchName newBranchName  # 更名。未指定旧分支名，则默认当前所在分支
 ```
 
 ## git log
