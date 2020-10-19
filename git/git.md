@@ -188,3 +188,10 @@ git add fileName  # 指定添加到暂存区的文件
 ``` bash
 git status -s  # 查看文件简明情况
 ```
+
+## git show
+
+```bash
+git show commitId  # 查看该次更改的内容
+```
+
