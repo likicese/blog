@@ -122,10 +122,11 @@ git stash drop  # 删除一个缓存栈
 
 ## git diff
 ``` bash
-git diff  # 查看修改内容
+git diff  # 查看未暂存的修改内容，即未暂存的文件和暂存区进行比较
 git diff <fileName>  # 比较暂存区文件和当前文件的差异
-git diff --stat  # 比价统计信息
-git diff --cached <filename>  # 暂存区和仓库进行比较
+git diff --cached <filename>  # 查看已暂存的修改内容。即暂存区和仓库进行比较
+git diff --stat  # 比较统计信息
+git diff dev master  # 比较dev和master的分支差异
 ```
 
 ## git config
