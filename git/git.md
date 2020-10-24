@@ -177,6 +177,7 @@ git commit --amend  # 修改commit的注释
 
 ``` bash
 git rm --cached <fileName>  # 撤销掉提交去暂存区的文件
+git rm dirName/\*.java  # 删除该目录下所有后缀为.txt的文件
 ```
 
 ## git add
