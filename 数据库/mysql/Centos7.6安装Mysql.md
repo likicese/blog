@@ -139,4 +139,9 @@ ERROR 2059 (HY000): Authentication plugin 'caching_sha2_password' cannot be load
 ```
 
 使用另一个插件：  
-mysql> CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pMQiEge1ikst7S_6tlXzBOmt_4b';
+
+```bash
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pMQiEge1ikst7S_6tlXzBOmt_4b';  # 更改加密方式
+CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'pMQiEge1ikst7S_6tlXzBOmt_4b';  # 或直接新建新用户
+```
+
