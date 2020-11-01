@@ -201,3 +201,9 @@ git status -s  # 查看文件简明情况
 git show commitId  # 查看该次更改的内容
 ```
 
+## git reflog
+
+```bash
+git reflog show # 查看历史切换操作
+```
+
