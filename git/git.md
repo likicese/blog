@@ -174,6 +174,7 @@ git fetch --all
 
 ``` bash
 git commit --amend  # 修改commit的注释
+git commit -m "我是提交日记" -a  # add且commit
 ```
 
 ## git rm
