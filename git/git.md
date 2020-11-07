@@ -175,6 +175,7 @@ git fetch --all
 ``` bash
 git commit --amend  # 修改commit的注释
 git commit -m "我是提交日记" -a  # add且commit
+git commit --amend  # 将内容追加到前一个commit中，不产生新的commitId
 ```
 
 ## git rm
