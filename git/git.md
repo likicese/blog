@@ -168,6 +168,7 @@ git revert HEAD  # 新增一次提交，抵消上一次提交带来的变化
 
 ``` bash
 git fetch --all
+git fetch master  # 更新远程master分支
 ```
 
 ## git commit
