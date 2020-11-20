@@ -28,7 +28,7 @@
 
     改为
 
-    RUSTUP_UPDATE_ROOT="http://mirrors.ustc.edu.cn/rust-static/rustup"
+    RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
 
 3. 临时修改组件源
 
@@ -50,7 +50,14 @@
     echo "RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup"  >> ~/.cargo/env
     ```
 
-## 报错
+## 添加环境变量
+
+```
+echo 'export PATH=$HOME/.cargo/bin:$PATH' >> /etc/profile
+source /etc/profile
+```
+
+## 报错解决
 
 1. 缺少编译工具
 
@@ -74,4 +81,28 @@ apt install gcc
 
 # 或者
 apt install build-essential
+```
+
+## 检查
+
+运行一个hello world
+
+编辑一个`hello.rs`，内容如下：
+
+```
+fn main() {
+    println!("Hello World!");
+}
+```
+
+编译命令：
+
+```
+rustc hello.rs
+```
+
+执行编译后的文件：
+
+```
+./1
 ```
