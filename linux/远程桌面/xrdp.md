@@ -16,3 +16,4 @@ systemctl enable xrdp  # 设置开机启动
 ## 配置文件
 
 配置文件为 `/etc/xrdp/xrdp.ini` ，建议修改其监听端口
+

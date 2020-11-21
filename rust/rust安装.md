@@ -106,3 +106,16 @@ rustc hello.rs
 ```
 ./1
 ```
+
+## 软件包索引
+
+编辑`~/.cargo/config`文件，添加如下内容：
+
+```
+[source.crates-io]
+replace-with = 'tuna'
+
+[source.tuna]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+```
+
