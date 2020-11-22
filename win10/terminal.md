@@ -4,7 +4,7 @@
 
 最近在研究windows terminal，感觉还可以。
 
-可以通过设定 `commandline` 指定开启terminal后，运行的程序，从而达到快速跳入莫一台机器的效果。
+可以通过设定 `commandline` 指定开启terminal后，运行的程序，从而达到快速跳入某一台机器的效果。
 
 文件夹中在地址栏里输入“wt”即可打开terminal (配合设置"startingDirectory" = null, 可以在当前目录下打开terminal)
 
@@ -36,6 +36,29 @@
 "largePasteWarning": false,  /* 禁用粘贴文字大于5KB时的提醒框 */
 "multiLinePasteWarning": false,  /* 禁用粘贴文字存在换行符时的提醒框 */
 ```
+
+## Git Bash的设置
+
+前提：安装windows版的git
+
+将下面的配置放到配置文件中。
+
+位置：profiles -> list，即和power shell同级
+
+```
+{
+                // Make changes here to the cmd.exe profile.
+                "guid": "{0caa98ad-35be-5e56-a8ff-afceefea61a1}",
+                "name": "git",
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
+                "icon": "%SystemDrive%\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",  /* 直接使用git的图标 */
+                "scrollbarState": "hidden",  /* 隐藏滚动条 */
+                "cursorShape": "emptyBox",  /* 光标为框 */
+                "hidden": false
+},
+```
+
+
 
 ## 快捷键
 
