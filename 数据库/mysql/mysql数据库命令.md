@@ -26,10 +26,18 @@ create table newTableName like oldTableName  # 根据旧表创建新表
 
 ## 用户
 
-``` sql
+``` mysql
 create user 'username'@'%' identified by 'yourpassword';  # 创建用户
 grant all privileges on databaseName.* to 'username'@'%';  # 给予用户数据库的全部权限。"%" 代表该用户在任意IP地址登录均能看见这个表。完成后，记得刷新
 update mysql.user set Host='127.0.0.1', password=password('you password') where User="you name";  # 修改密码
+```
+
+## 授权
+
+```mysql
+grant update, select on databaseName.tableName to 'userName'@'localhost';  # 授予从localhost登录的userName用户对databaseName数据库tableName表的更新和查询权限。
+grant all privileges on databaseName.* to 'userName'@'192.%.%.%';  # 授予该用户全部权限。
+show grants for 'userName'@'localhost'  # 查询从localhost登录的userName用户具备的权限
 ```
 
 ## 常用SQL语句
