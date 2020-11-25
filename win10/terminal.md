@@ -50,7 +50,7 @@
                 // Make changes here to the cmd.exe profile.
                 "guid": "{0caa98ad-35be-5e56-a8ff-afceefea61a1}",
                 "name": "git",
-                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe --login -i",
                 "icon": "%SystemDrive%\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",  /* 直接使用git的图标 */
                 "scrollbarState": "hidden",  /* 隐藏滚动条 */
                 "cursorShape": "emptyBox",  /* 光标为框 */
@@ -58,15 +58,13 @@
 },
 ```
 
-
-
 ## 快捷键
 
-shift + alt + w ：关闭当前标签页
+shift + ctrl + w ：关闭当前标签页
 
-ctrl + shift + page-up : 向上翻页
+shift + ctrl + page-up : 向上翻页
 
-ctrl + shift + page-down : 向下翻页
+shift + ctrl + page-down : 向下翻页
 
 ### 窗口拆分
 
@@ -76,8 +74,19 @@ shift + alt + - ：向下拆分
 
 alt + up|down|left|right ：拆分后，移动焦点所处位置
 
-## 不熟悉的地方
+## 疑难杂症
 
 ### vim后自动进入Replace模式
 
 请打开powershell，把 `选项 -> 快速编辑模式` 的勾选去掉
+
+### ctrl + v 和 vim自身热键冲突
+
+windows terminal将`ctrl + v`设置为粘贴，而这在vim中是块选择热键，两者冲突。
+
+找到`settings.json`文件中如下设置项，注释掉
+
+```
+{ "command": "paste", "keys": "ctrl+v" },
+```
+
