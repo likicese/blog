@@ -34,12 +34,6 @@ git reset --hard HEAD^  # 不删除工作空间改动代码，撤销commit，撤
 git reset --soft HEAD^  # 删除工作空间改动代码，撤销commit，保留add
 ```
 
-## 记住密码
-
-``` bash
-git config --local credential.helper store  # 执行该命令后，该项目下，只需要输入一次密码，就会被记住。密码以明文方式存储在本地
-```
-
 ## 从ssh切换为https
 
 ``` bash
@@ -134,14 +128,18 @@ git diff dev master  # 比较dev和master的分支差异
 ``` bash
 git config --global core.editor "vim"  # 设置vim为编辑器
 git config --global merge.tool <tool>  # 设置冲突解决的工具
-git config core.filemode false  # 忽略文件属性改变。默认会跟踪文件属性改变
-git config --local core.quotepath false  # 解决本项目下，git status 会乱码问题
-git config --local --unset user.name  # 取消user.name 配置
-git config --list  # 列出所有的配置
+git config --global core.filemode false  # 忽略文件属性改变。默认会跟踪文件属性改变
+git config --local core.quotepath false  # 解决git status 会乱码，中文文件名显示为一堆数字的问题。终端需要切换为utf-8使用
+git config --local credential.helper store  # 只需要输入一次密码，就会被记住。密码以明文方式存储在本地
+git config --local --unset user.name  # 取消user.name 配置。同理，还可以取消其他的配置
+git config --global core.ignorecase false  # 打开大小写敏感
 
-git config --system list  # 列出系统配置。/etc/gitconfig
-git config --global list  # 列出用户级配置。~/.gitconfig 或 ~/.config/git/config
-git config --local list  # 列出仓库级配置。项目文件夹下.git/config
+git config --list  # 列出所有的配置
+git config --system --list  # 列出系统配置。/etc/gitconfig
+git config --global --list  # 列出用户级配置。~/.gitconfig 或 ~/.config/git/config
+git config --local --list  # 列出仓库级配置。项目文件夹下.git/config
+
+git config --global core.autocrlf true  # windows下使用。检出代码时，将换行符换为\r\n，提交时换为\n
 ```
 
 ## git rebase
