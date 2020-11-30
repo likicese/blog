@@ -45,7 +45,23 @@ smbpasswd -a samba1  # 将samba1用户添加到smb管理中。此处会让你输
 
 ### 四、启动服务
 
-```
+```bash
 systemctl status smb  # 启动服务
+```
+
+samba启动后，将监听139和445端口。
+
+由于windows访问的是标准端口，若是修改端口，则windows会无法访问。
+
+## 访问
+
+在windows上，按`win + r`快捷键，打开运行输入`\\192.168.1.3\share`。
+
+在输入用户名和密码后，即可访问共享文件夹。
+
+## 维护
+
+```bash
+smbpasswd samba1  # 修改samba1用户的密码
 ```
 
