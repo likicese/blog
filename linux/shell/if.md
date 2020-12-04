@@ -36,9 +36,13 @@
 ## 示例
 
 ``` bash
-if [ A -eq B];then
+if [ A -eq B ]; then
     echo "A等于B"
-elif [ A -gt B];then
+elif [ A -gt B ]; then
     echo "A大于B"
+fi
+
+if [ A == "test" ]; then
+	echo "A是test"
 fi
 ```
