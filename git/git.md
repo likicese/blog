@@ -86,6 +86,9 @@ git branch -d dev  # 删除本地名为dev的分支
 git branch -D dev  # 强制删除本地名为dev的分支
 git branch -v  # 列出本地所有分支，当前分支会带上“*”
 git branch -m oldBranchName newBranchName  # 更名。未指定旧分支名，则默认当前所在分支
+
+git branch -a # 查看远程分支
+git branch -r  # 查看所有远程分支
 ```
 
 ## git log
