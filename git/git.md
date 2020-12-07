@@ -214,3 +214,10 @@ git show commitId  # 查看该次更改的内容
 git reflog show # 查看历史切换操作
 ```
 
+## git tag
+
+```bash
+git tag  # 列出所有tag
+git tag -d 0.1v  # 删除名为0.1v的tag
+```
+
