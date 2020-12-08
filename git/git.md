@@ -42,6 +42,7 @@ git remote set-url --delete origin git@github.com:xxx/xxx.git
 ```
 
 ## git自动补全
+
 ``` bash
 cd ~  # 进入家目录
 wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash  # 拉取补全文件
@@ -49,6 +50,16 @@ mv git-completion.bash .git-completion.bash  # 隐藏在ls下的显示
 echo "source ~/.git-completion.bash" >> ~/.bashrc  # 打开shell时，加载该文件
 source ~/.bashrc  # 立即加载文件生效
 ```
+
+### git clone
+
+```bash
+git clone https://github.com/xxx.xxx.git  # 下载代码
+git clone https://github.com/xxx.xxx.git mydir  # 下载代码到mydir文件夹中
+git clone https://github.com/xxx.xxx.git -b dev mydir  # 下载代码到mydir文件夹中，且切换为dev分支
+```
+
+
 
 ## git pull
 
