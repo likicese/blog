@@ -156,6 +156,7 @@ git config --global --list  # 列出用户级配置。~/.gitconfig 或 ~/.config
 git config --local --list  # 列出仓库级配置。项目文件夹下.git/config
 
 git config --global core.autocrlf true  # windows下使用。检出代码时，将换行符换为\r\n，提交时换为\n
+git config --local http.sslVerify "false"  # 忽略ssl验证。若是还没git clone，则先执行export GIT_SSL_NO_VERIFY=true设置环境变量，再clone
 ```
 
 ## git rebase
