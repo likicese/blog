@@ -51,6 +51,14 @@ echo "source ~/.git-completion.bash" >> ~/.bashrc  # 打开shell时，加载该�
 source ~/.bashrc  # 立即加载文件生效
 ```
 
+## 其他操作
+
+```bash
+git ls-files  # 查看已经提交的文件
+```
+
+
+
 ### git clone
 
 ```bash
