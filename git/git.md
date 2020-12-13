@@ -239,5 +239,7 @@ git reflog show # 查看历史切换操作
 ```bash
 git tag  # 列出所有tag
 git tag -d 0.1v  # 删除名为0.1v的tag
+git show 0.1v  # 查看名为0.1v的tag信息
+git push 0.1v  # 将名为0.1v的tag推送到远端
 ```
 
