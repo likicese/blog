@@ -97,6 +97,8 @@ git checkout fileName  # 将文件回退到没有提交的版本
 git checkout dev  # 将工作分支切到dev，并且追踪远程分支
 git checkout -b dev  # 本地新建dev分支
 git checkout dev  # 切换到dev分支
+git checkout -  # 切换到上一个分分支
+git checkout -b dev1 origin/dev  # 从远程dev分支创建dev1分支到本地，且切换到该分支
 ```
 
 ## git branch
