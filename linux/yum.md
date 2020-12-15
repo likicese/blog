@@ -12,3 +12,10 @@ sudo yum install packageName-<VERSION>  # 安装特定版本软件
 ``` bash
 rpm -e --nodeps  # 强制卸载软件，不检查依赖
 ```
+
+## 拓展包安装
+
+```bash
+yum -y install  epel-release  # 该包为拓展包，安装许多软件必不可少
+```
+
