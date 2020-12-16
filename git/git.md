@@ -89,6 +89,7 @@ git remote  # 列出所有主机
 git remote -v  # 列出主机网址
 git remote add staging https://github.com/xxx/xxx.git  # 添加一个远程分支
 git fetch staging  # 抓取一个远程分支
+git remote show origin  # 显示远程库的资源
 ```
 
 ## git checkout
@@ -129,6 +130,7 @@ git log --follow fileName  # 查看fileName的提交
 git push origin --delete dev  # 删除远程名为dev分支的代码
 git push origin master  # 指定本地master分支推送到远程名为master的分支。如果不存在，则创建
 git push origin  # 若当前分支和远程分支存在追踪关系，则分支名可以省略
+git push origin main:main_local  # 将本地main_local分支和远程库关联
 ```
 
 ## git stash
