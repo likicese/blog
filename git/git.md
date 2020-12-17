@@ -74,6 +74,7 @@ git clone https://github.com/xxx.xxx.git -b dev mydir  # 下载代码到mydir文
 ``` bash
 git pull --rebase  # 避免当先commit再pull后产生类似 “ Merge branch 'dev' of git@gitlab.1chemic.com:sales/crm.git into dev ” 这种提交
 git pull origin dev  # 推送分支到远程dev分支
+git pull -p  # 在本地，删除远程没有的分支
 ```
 
 ## git merge
