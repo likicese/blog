@@ -1,23 +1,37 @@
 # rust安装-windows
 
-## 安装mingw
+[参考](https://blog.csdn.net/zhmh326/article/details/103805485)
 
-由于rust需要gcc编译，所以在windows平台上，mingw或visual studio 二选一。
+## 安装mingw64
 
-鉴于visual studio太大，我果断选了mingw
+这是mingw的代替品。
 
 ### 下载
 
-https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/
+下载网址：https://sourceforge.net/projects/mingw-w64/files/
+
+```
+x86_64：64位版本
+i686：32位版本
+
+posix：操作系统接口标准为posix，相比win32，posix对C++11标准库支持更好。可以使用多线程。
+win32：操作系统接口标准为win32
+
+sjlj：采用sjlj的异常处理，这种方式比起其他异常处理会慢得多
+dwarf：采用dwarf的异常处理，这种方式需要在可执行程序中添加额外的调试信息，使得程序体积较大
+seh：采用seh的异常处理，即使用windows自身的异常处理机制
+```
+
+建议安装x86_64-8.1.0-release-posix-seh-rt_v6-rev0。win32版本编译时候会报错。
 
 ### 安装
 
-安装该文件后，会获得一个管理器。
+下载会获得一个7z文件。
 
-选中管理器的`Basic Setup`，将右边的包全部选上`Make for installation`，然后选择左上角的`Installation`，点击`Apply Changes`，进行安装。
+将其解压到C盘下，系统变量可配置如下
 
-### 配置环境变量
+```
+`C:\mingw64\bin`
+```
 
-在系统中，将`C:\MinGW\bin`环境变量配置进去
-
-打开cmd，能用gcc命令即为成功
+打开cmd，输入`gcc`测试即可
