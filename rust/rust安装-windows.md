@@ -223,3 +223,25 @@ Press the Enter key to continue.
 ```
 
 安装完成，随意输入一个按键，然后退出
+
+## 配置vs code
+
+安装`rust-analyaer`和`CodeLLDB`
+
+配置文件如下：
+
+```
+    "configurations": [
+
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${workspaceFolder}/target/debug/projectName.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+```
+
+若不修改program一项，则会报找不到程序错误。
