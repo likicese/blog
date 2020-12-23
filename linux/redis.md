@@ -14,3 +14,12 @@ info Replication  # 查询redis主从信息
 
 redis-cli -a passWord keys "KEY_*" | xargs redis-cli -a passWord del  # 批量删除keys
 ```
+
+## hashMap
+
+```bash
+hget abcd ppp  # 获取键值为abcd，属性值为ppp的值
+hgetall abcd  # 获取键值为abcd的所有值
+hdel abcd ppp  # 删除键值为abcd，属性值为ppp的值
+```
+
