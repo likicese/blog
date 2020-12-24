@@ -79,6 +79,15 @@ performance_schema.data_locks
 
 performance_schema.data_locks_wait
 
+## 密码相关
+
+mysql8下
+
+```mysql
+show variables like 'validate_password%';  # 查看有关密码的设置
+set global validate_password.policy=0;  # 密码验证低要求
+```
+
 ## 其它操作
 
 ``` sql
