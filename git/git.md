@@ -132,6 +132,7 @@ git push origin --delete dev  # 删除远程名为dev分支的代码
 git push origin master  # 指定本地master分支推送到远程名为master的分支。如果不存在，则创建
 git push origin  # 若当前分支和远程分支存在追踪关系，则分支名可以省略
 git push origin main:main_local  # 将本地main_local分支和远程库关联
+git push -u origin  # 指定要推送的远程主机
 ```
 
 ## git stash
