@@ -1,6 +1,11 @@
 # ansible
 
-## host
+## hosts
+
+编辑`/etc/ansible/hosts`
+
+### init风格
+
 ``` config
 [testhost1]
 192.168.1.[1:100]  # 表示为1~100的IP地址
@@ -13,6 +18,20 @@ ansible_sudo_pass  # sudo的密码
 
 192.168.1.10
 host[a-z]
+```
+
+### yaml风格
+
+``` config
+vms:
+    children:
+        vms_1:
+            hosts:
+                192.168.1.[1:255]:
+        vms_2and3:
+            hosts:
+                192.168.2.[1:255]:
+                192.168.3.[1:255]:
 ```
 
 ## 命令
