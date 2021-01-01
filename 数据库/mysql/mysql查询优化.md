@@ -20,4 +20,3 @@ select CONCAT("analyze table ", table_name, ";")  table_name from information_sc
 ```
 
 
-
