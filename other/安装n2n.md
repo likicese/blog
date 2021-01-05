@@ -59,6 +59,18 @@ edge -d <edgeName> -a <virtualLocalIP> -s <subnetMask> -c <netName> -k <password
 edge -d edge-name -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 144.144.144.144
 ```
 
+## windows下使用bat运行
+
+将编译出的`edge.exe`文件放到`C:\n2n\`文件夹
+
+创建bat文件，内容如下
+
+```bat
+set N2N_WORK="C:\n2n\"
+
+start cmd /k "cd %N2N_WORK% && edge.exe -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 144.144.144.144:12345"
+```
+
 ## 报错处理
 
 ### 没安装g++
