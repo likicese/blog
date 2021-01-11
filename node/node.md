@@ -2,7 +2,13 @@
 
 ## 安装
 
-下载：https://nodejs.org/en/download/
+官网下载：https://nodejs.org/en/download/
+
+淘宝的cdn下载：
+
+``` bash
+wget https://cdn.npm.taobao.org/dist/node/v14.15.0/node-v14.15.0-linux-x64.tar.xz
+```
 
 将压缩包解压到/usr/local/
 
