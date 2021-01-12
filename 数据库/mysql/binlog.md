@@ -6,7 +6,7 @@
 
 ``` bash
 flush logs;  # 重新写入一个日志文件
-shwo binary logs;  # 获取文件列表
+show binary logs;  # 获取文件列表
 show binlog events;  # 查看第一个binlog文件内容
 show biglog events in "mysql-binlog.000517";  # 查看指定文件内容
 ```
