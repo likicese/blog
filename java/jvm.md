@@ -14,3 +14,11 @@ jinfo -flags <pid>  # java进程的pid号。检查进程资源设置情况
 | 参数 | 意义 | 默认值 |
 | --- | ---| ---|
 | -XX:MaxHeapSize | 最大可用内存 | 1/4 物理内存 |
+
+## 打包相关命令
+
+```
+jar -cf xxx.jar ./*
+jar -xf xxx.jar
+```
+
