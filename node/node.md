@@ -27,4 +27,5 @@ export PATH=${NODE}:${PATH}
 npm install -–unsafe-perm xx  # 强制用root用户执行当前的安装命令。npm不允许用root运行。当使用root运行时，会自动切换到nobody用户。碰到一些需要权限的操作时，则权限不够。
 npm install --unsafe-perm=true --allow-root  xx  # 加强版
 npm install --registry=https://registry.npm.taobao.org express  # 指定淘宝源安装express
+npm install --prefix /opt/lib -g express  # 换一个全局路径安装express，避免版本冲突的q'kuan
 ```
