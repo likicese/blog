@@ -22,3 +22,10 @@ jar -cf xxx.jar ./*
 jar -xf xxx.jar
 ```
 
+## 启动命令
+
+``` bash
+# 更改监听端口和上下文
+java -jar ./demo-0.0.1-SNAPSHOT.jar --server.port=8080 --server.servlet.context-path=/app
+```
+
