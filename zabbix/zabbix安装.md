@@ -121,3 +121,32 @@ error: Failed dependencies:
 ``` shell
 [root@localhost ~]# wget http://mirror.centos.org/centos/7/updates/x86_64/Packages/gnutls-dane-3.3.29-9.el7_6.x86_64.rpm
 ```
+## 默认模版监控添加
+
+### mysql
+
+模版：[Template DB MySQL by Zabbix agent 2](https://git.zabbix.com/projects/ZBX/repos/zabbix/browse/src/go/plugins/mysql/README.md)
+
+1. 创建用户
+
+   其中，密码、连接地址
+
+   ```mysql
+   CREATE USER 'zbx_monitor'@'127.0.0.1' IDENTIFIED BY 'oyKEcir943NqKlRaRqZS';
+   GRANT USAGE,REPLICATION CLIENT,PROCESS,SHOW DATABASES,SHOW VIEW ON *.* TO 'zbx_monitor'@'127.0.0.1';
+   flush privileges;
+   ```
+
+2. 主机连接模版
+
+3. 修改被监控机器的配置
+
+   在zabbix-sever的web页面上，找到主机。依次：配置 -> 主机 -> "主机名字" -> 宏
+
+   在主机宏中，添加如下三项：
+
+   | 宏                | 值                   |
+   | ----------------- | -------------------- |
+   | {$MYSQL.DSN}      | tcp://localhost:3306 |
+   | {$MYSQL.PASSWORD} | oyKEcir943NqKlRaRqZS |
+   | {$MYSQL.USER}     | zbx_monitor          |
