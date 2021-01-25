@@ -150,3 +150,30 @@ error: Failed dependencies:
    | {$MYSQL.DSN}      | tcp://localhost:3306 |
    | {$MYSQL.PASSWORD} | oyKEcir943NqKlRaRqZS |
    | {$MYSQL.USER}     | zbx_monitor          |
+
+### nginx
+
+模版：[Template App Nginx by Zabbix agent](https://www.zabbix.com/cn/integrations/nginx#tab:official2)
+
+1. 连接该模版
+
+2. 配置nginx
+
+   到被监控的主机上去
+
+   先检查是否支持该模块
+
+   ```
+   nginx -V 2>&1 | grep -o with-http_stub_status_module.
+   ```
+
+   若支持，则添加nginx的 配置
+
+   ```
+   location = /basic_status {
+       stub_status;
+       allow 127.0.0.1;
+       allow ::1;
+       deny all;
+   }
+   ```
