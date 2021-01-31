@@ -192,6 +192,8 @@ git reset --hard HEAD^  # 撤回commit、add和工作区内容
 
 ``` bash
 git revert HEAD  # 新增一次提交，抵消上一次提交带来的变化
+git revert HEAD^  # 撤销前前此提交
+git revert commitid  # 撤销commitid那一次提交
 ```
 
 ## git fetch
