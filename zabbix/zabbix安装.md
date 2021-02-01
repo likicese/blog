@@ -121,6 +121,24 @@ error: Failed dependencies:
 ``` shell
 [root@localhost ~]# wget http://mirror.centos.org/centos/7/updates/x86_64/Packages/gnutls-dane-3.3.29-9.el7_6.x86_64.rpm
 ```
+## 自动发现
+
+删除被自动发现的主机后，自动发现会把他加回来。
+
+自动发现的速度比较慢，模版添加也比较慢。
+
+### Zabbix discoverer processes more than 75% busy
+
+原因：
+
+编辑 `"/etc/zabbix/zabbix_server.conf`，修改如下配置项
+
+```
+StartDiscoverers=50  # 默认此项为1
+```
+
+重启`systemctl restart zabbix-server`
+
 ## 默认模版监控添加
 
 ### mysql
