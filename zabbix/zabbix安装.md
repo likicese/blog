@@ -139,6 +139,20 @@ StartDiscoverers=50  # 默认此项为1
 
 重启`systemctl restart zabbix-server`
 
+## 问题
+
+### zabbix-server的IP不正确
+
+#### 问题
+
+执行`zabbix_get -s 192.168.1.20 -k system.hostname`，反馈如下
+
+```
+zabbix_get [32282]: Warning: Message from 192.168.1.20 is missing header. Message ignored.
+zabbix_get [32282]: Get value error:
+zabbix_get [32282]: Check access restrictions in Zabbix agent configuration
+```
+
 ## 默认模版监控添加
 
 ### mysql
