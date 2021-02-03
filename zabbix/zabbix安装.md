@@ -153,6 +153,13 @@ zabbix_get [32282]: Get value error:
 zabbix_get [32282]: Check access restrictions in Zabbix agent configuration
 ```
 
+也可能是：
+
+```
+zabbix_get [31839]: Get value error: ZBX_TCP_READ() failed: [104] Connection reset by peer
+zabbix_get [31839]: Check access restrictions in Zabbix agent configuration
+```
+
 ## 默认模版监控添加
 
 ### mysql
