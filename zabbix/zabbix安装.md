@@ -160,6 +160,15 @@ zabbix_get [31839]: Get value error: ZBX_TCP_READ() failed: [104] Connection res
 zabbix_get [31839]: Check access restrictions in Zabbix agent configuration
 ```
 
+执行`telnet 192.168.1.20 10050`，则反馈
+
+```
+Trying 192.168.1.20...
+Connected to 192.168.1.20.
+Escape character is '^]'.
+Connection closed by foreign host.
+```
+
 ## 默认模版监控添加
 
 ### mysql
