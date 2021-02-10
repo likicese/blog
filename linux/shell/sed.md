@@ -15,3 +15,9 @@ sed -ir "/aaaaaaa/ a bbbbbbb" <fileName>  # 在aaaaaaa后边插入bbbbbbb。-r�
 sed -ir "/aaaaaaa/ i bbbbbbb" <fileName>  # 在aaaaaaa前边插入bbbbbbb。-r参数为支持正则
 ```
 
+## 删除
+
+```bash
+sed '/2/d' <fileName>  # 删除包含“2”的行
+```
+
