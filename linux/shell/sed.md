@@ -8,6 +8,7 @@ sed -n '5,10p'  test.txt  # 输出第5到第10行之间的内容
 sed '5,10d'  test.txt  # 删除第5到第10行之间的内容
 sed 's/a/b/2' 1.txt  # 用b替换第二次出现的a
 sed -n '/5/p' 1.txt  # 只输出第五行，避免sed默认输出全部。诀窍在于-n参数
+sed -n 's/a/b/p' 1.txt  # 只输出修改过的行
 sed '/^a/s/f/K/g' 1.txt  # 匹配以a开头的行，将f换成K
 sed '20,30d' 1.txt  # 删除20~30行
 ```
