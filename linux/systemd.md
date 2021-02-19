@@ -12,7 +12,9 @@ After=network-online.target
 Type=idle
 User=testuser  # 启动该服务的用户
 ExecStart=/tmp/test-service  # 运行服务的命令
-TimeoutSec=60s
+ExecStop=/bin/kill -s QUIT $MAINPID  # 杀掉进程时执行的命令
+Restart=always  # 总是重启。设为on-failure则仅仅异常退出时会重启
+TimeoutSec=60s  # 最长启动时间。超时后，首次发送SIGTERM信号，再超相同时长则发送SIGKILL信号
 
 [Install]
 WantedBy=multi-user.target
