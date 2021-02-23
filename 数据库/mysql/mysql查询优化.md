@@ -18,5 +18,3 @@
 analyze table tableName;  # Cardinality基准值无法真实反应表的变化时，需要执行此命令，对表直接更新。
 select CONCAT("analyze table ", table_name, ";")  table_name from information_schema.tables where table_schema='dataName'  # 拼接出批量更新的语句 
 ```
-
-
