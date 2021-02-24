@@ -25,3 +25,32 @@ https://hub.docker.com/u/arm32v7/
 https://hub.docker.com/u/armhf
 
 https://hub.docker.com/r/izone/arm/tags/
+
+## 改源
+
+```
+apt update
+apt install gnupg2  # 安装信任密钥的工具
+
+# 加入清华源
+cat > /etc/apt/sources.list << EOF
+deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+# deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ buster main non-free contrib rpi
+EOF
+
+cat > /etc/apt/sources.list.d/raspi.list << EOF
+deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ buster main ui
+EOF
+
+# 解决密钥信任问题
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9165938D90FDDD2E
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 82B129927FA3303E
+```
+
+```
+cat > /etc/apt/sources.list << EOF
+deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ buster main contrib non-free rpi
+EOF
+```
+
