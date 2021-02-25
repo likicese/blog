@@ -38,6 +38,7 @@ update mysql.user set Host='127.0.0.1', password=password('you password') where 
 grant update, select on databaseName.tableName to 'userName'@'localhost';  # 授予从localhost登录的userName用户对databaseName数据库tableName表的更新和查询权限。
 grant all privileges on databaseName.* to 'userName'@'192.%.%.%';  # 授予该用户全部权限。
 show grants for 'userName'@'localhost'  # 查询从localhost登录的userName用户具备的权限
+grant grant option on *.* to 'admin'@'%';  # 使该用户能够控制其他用户的权限
 ```
 
 ## 常用SQL语句
