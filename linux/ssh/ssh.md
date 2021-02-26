@@ -30,3 +30,27 @@ Authentication refused: bad ownership or modes for directory /home/admin
 chmod 700 /home/admin
 ```
 
+## ssh连接机器太慢
+
+排查：
+
+用`ssh root@192.168.1.3 -v`可以发现，在如下显示停留最久
+
+``` debug
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_0)
+```
+
+原因：
+
+ssh连接机器的时候，会用如下方法验证顺序：publickey,gssapi-keyex,gssapi-with-mic,password
+
+GSSAPI无法验证，直至超时。
+
+解决：
+
+在`/etc/ssh/ssh_config`添加如下配置
+
+``` config
+GSSAPIAuthentication no
+```
