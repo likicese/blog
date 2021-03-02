@@ -13,6 +13,7 @@ sed '/^a/s/f/K/g' 1.txt  # 匹配以a开头的行，将f换成K
 sed '20,30d' 1.txt  # 删除20~30行
 sed 's/a../&kkk/g' 1.txt  # &表示之前匹配的字符。即在a..后边，接上kkk三个字符
 echo "abc" | sed 's/\(a\).*/b \1/g'  # 输出结果为“b a”，其将匹配到的“a”暂存于“\1”内，在b后边输出\1
+sed '3c\kkkkkkkk' 1.txt  # 将第3行替换为kkkkkkkk
 ```
 
 ## 指定位置插入文本
