@@ -66,3 +66,10 @@ Host *
 ssh route  # 跳转到route服务器
 ssh uat  # 跳转到uat服务器
 ```
+
+## 强制使用密码连接ssh
+
+```bash
+ssh root@192.168.1.1 -o PasswordAuthentication=yes
+```
+
