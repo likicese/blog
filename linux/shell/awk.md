@@ -1,5 +1,13 @@
 # awk
 
+## 语法
+
+```bash
+awk '{pattern + action}' <fileName>
+```
+
+以行为处理单位
+
 ## 命令
 
 ```bash
