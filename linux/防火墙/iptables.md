@@ -87,3 +87,15 @@ iptables -A FORWARD -j REJECT  # 禁止未允许的规则访问
 
 iptables -A INPUT -i lo -j ACCEPT  # 允许环回访问
 ```
+
+## 开机重载iptables
+
+``` bash
+iptables -A INPUT -p tcp --dport 80 -j REJECT  # 拒绝所有的主机访问80端口，策略例子
+iptables-save > /etc/sysconfig/iptables-save  # 将策略保存到文件中。每次更改iptables策略后，都需要执行这条语句更新一次
+
+echo 'iptables-restore < /etc/sysconfig/iptables-save' >> /etc/rc.d/rc.local  # 设置开机自动加载策略，仅执行一次即可
+```
+
+## 例子
+
