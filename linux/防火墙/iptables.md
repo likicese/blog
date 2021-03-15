@@ -4,6 +4,8 @@
 
 iptables工作在第三层（网络层）、第四层（传输层）
 
+按规则顺序依次匹配
+
 ## 四表五链
 
 ### 四表
@@ -102,4 +104,17 @@ echo 'iptables-restore < /etc/sysconfig/iptables-save' >> /etc/rc.d/rc.local  # 
 ```
 
 ## 例子
+
+### 仅允许192.168.1.0/24的流量访问80端口
+
+以下语句将会写入2条规则。一句允许，一句拒绝。
+
+由于iptables按序匹配的特点，允许语句需在拒绝语句之前执行。
+
+若想将规则顺序提前，则需要使用`-I` （从头部插入）替换`-A`（）从尾部插入参数。
+
+```bash
+iptables -A INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j REJECT
+```
 
