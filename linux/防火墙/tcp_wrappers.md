@@ -15,6 +15,12 @@ man hosts_options
 
 若/etc/hosts.deny中有ip存在，则拒绝；否则，接受。
 
+检查是否支持tcp wrappers的命令
+
+```bash
+ldd $(which sshd) | grep libwrap  # 以sshd为例，检查是否链接了libwarp.so。无结果，则没链接，则不支持
+```
+
 ## 例子
 
 只允许192.168.1.0/24访问本机的sshd服务
