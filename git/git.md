@@ -251,3 +251,14 @@ git show 0.1v  # 查看名为0.1v的tag信息
 git push 0.1v  # 将名为0.1v的tag推送到远端
 ```
 
+## 例子
+
+### 删除旧分支，创建新分支,推送远程
+
+``` bash
+git push origin --delete release
+git branch --set-upstream-to=origin/fix fix
+git pull
+git checkout release
+git push origin release:release
+```
