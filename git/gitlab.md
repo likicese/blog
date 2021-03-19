@@ -148,3 +148,31 @@ job2 - 开始发布:
 以上定义了两个任务。在代码变动的时候，会按序执行job。
 
 可以试着更改并push代码，然后在项目的web页面中，左侧部位，CI/CD可以看到job的执行结果
+
+## 登录web页面限制
+
+需求：不允许192.168.1.100访问gitlab登录页面
+
+编辑文件：/var/opt/gitlab/nginx/conf/gitlab-http.conf，加入如下内容：
+
+``` config
+location /admin {
+    allow 192.168.1.100/32;
+    deny all;
+    proxy_cache off;
+    proxy_pass  http://gitlab-workhorse;
+  }
+
+  location /users {
+    allow 192.168.1.100/32;
+    deny all;
+    proxy_cache off;
+    proxy_pass  http://gitlab-workhorse;
+  }
+```
+
+保存编辑后的文件。执行以下命令，重启gitlab的nginx
+
+``` bash
+gitlab-ctl hup nginx
+```
