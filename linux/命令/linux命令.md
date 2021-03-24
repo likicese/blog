@@ -75,3 +75,9 @@ sort a b | uniq  # a 并 b
 sort a b b | uniq -u  # a - b
 ```
 
+## nmap
+
+```bash
+nmap -sP 192.168.1.1-254  # 搜索该ip段内存活的主机
+```
+
