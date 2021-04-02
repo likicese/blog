@@ -24,9 +24,15 @@ tracker：跟踪服务器
 
 在本机上安装fastdfs、nginx，能够使用防盗链
 
+环境为 centos7
+
 ## 安装过程
 
-需要安装
+安装编译所需：
+
+``` bash
+yum install pcre pcre-devel zlib zlib-devel openssl openssl-devel gcc
+```
 
 ## 安装libfastcommon
 
@@ -136,3 +142,26 @@ netstat -nltpu | grep -E "tracker|storage"  # 检查端口是否监听成功
 ```
 
 若启动失败。则去 `/data/fdfs` 文件夹下去寻找日志。
+
+## 安装nginx
+
+``` bash
+./configure --add-module=/opt/package/fastdfs-nginx-module/src/
+make
+make install
+```
+
+## nginx的fdfs模块编译
+
+### 未按序编译fdfs和common
+
+报错
+
+```
+In file included from /opt/fastdfs-nginx-module-1.22/src//ngx_http_fastdfs_module.c:6:0:
+/opt/fastdfs-nginx-module-1.22/src//common.c:21:31: fatal error: fastcommon/logger.h: No such file or directory
+ #include "fastcommon/logger.h 
+```
+
+解决：先编译fdfs和common即可
+
