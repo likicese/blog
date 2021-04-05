@@ -17,3 +17,12 @@ echo "aaa" | awk 'BEGIN{print "bbb"} {print} END{print "ccc"}'  # 三个动作�
 awk '{print $NF}'  # 输出每行最后一个字段
 ```
 
+## 参数
+
+```
+$0 所有列
+$1 第一列
+NF 字段数量
+FS 分隔符
+```
+
