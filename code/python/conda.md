@@ -42,7 +42,8 @@ conda remove -n web --all
 conda create --name newEnvName --clone oldEnvName
 
 # 更新
-conda update conda
+conda update conda  # 先升级conda
+conda update anaconda  # 再升级anaconda
 
 # 获取版本号
 conda -V
