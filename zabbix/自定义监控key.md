@@ -45,7 +45,7 @@ chmod u+x /etc/zabbix/shell/ssh_62200_test.sh
 ### 重启zabbix-agent
 
 ``` bash
-systemctl restart zabbix-agent
+systemctl restart zabbix-agent  # 必须重启agent，否则脚本不加载
 ```
 
 ## 在zabbix-server
