@@ -30,6 +30,7 @@ create table newTableName like oldTableName  # 根据旧表创建新表
 create user 'username'@'%' identified by 'yourpassword';  # 创建用户
 grant all privileges on databaseName.* to 'username'@'%';  # 给予用户数据库的全部权限。"%" 代表该用户在任意IP地址登录均能看见这个表。完成后，记得刷新
 update mysql.user set Host='127.0.0.1', password=password('you password') where User="you name";  # 修改密码
+ALTER USER 'userName'@'localhost' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY 'xxxxxxxxxpassword';  # 修改密码
 ```
 
 ## 授权
