@@ -165,3 +165,25 @@ In file included from /opt/fastdfs-nginx-module-1.22/src//ngx_http_fastdfs_modul
 
 解决：先编译fdfs和common即可
 
+
+## 报错解决
+
+### 连接文件错误
+
+报错
+
+执行`less /data/tracker/logs/trackerd.log`，可以看到如下报错
+
+``` txt
+/usr/bin/fdfs_trackerd: symbol lookup error: /usr/bin/fdfs_trackerd: undefined symbol: int2str
+```
+
+解决
+
+``` bash
+ldd /usr/bin/fdfs_trackerd  # 查看连接，能看到一条：libfastcommon.so => /lib/libfastcommon.so (0x00007ffa077a4000)
+rm /lib/libfastcommon.so -f  # 删除连接
+ldd /usr/bin/fdfs_trackerd  # 再次查看连接，连接路径改变：libfastcommon.so => /lib64/libfastcommon.so
+/sbin/ldconfig  # 生效连接
+# 再启动即可
+```
