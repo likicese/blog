@@ -99,19 +99,30 @@ mingw32-make  ; 此处即make命令
 
 ## 运行
 
-语法示例
+需要先启动supernode，再启动edge。
 
-virtualLocalIP别和本地IP同一网段
+下为示例。假设现有3个主机，均编译了n2n。
 
-``` shell
-edge -d <edgeName> -a <virtualLocalIP> -s <subnetMask> -c <netName> -k <password> -l <superNodeIP>
+### supernode
+
+新建文件`/etc/n2n/community.conf`，写入以下内容，意为只允许创建3个以下名字的虚拟网络。若不指定，则任意名字都能创建。
+
+```
+community1
+community2
+netname
 ```
 
-实例
+不同community的主机无法相互访问。
 
-``` shell
-edge -d edge-name -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 144.144.144.144
+
+
+在ip地址为`192.168.1.101`的主机A上，执行以下命令
+
+```bash
+supernode -l 10000 -c /etc/n2n/community.conf -v -f -t  # 启动supernode，监听端口10000
 ```
+
 
 ## windows下使用bat运行
 
