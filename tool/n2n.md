@@ -123,8 +123,31 @@ netname
 supernode -l 10000 -c /etc/n2n/community.conf -v -f -t  # 启动supernode，监听端口10000
 ```
 
+### edge
 
-## windows下使用bat运行
+在ip地址为`192.168.1.102`的主机B上，执行以下命令
+
+```bash
+edge -d edge-name -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 192.168.1.101:10000  # 创建一个名为netname的网络，密码是password
+```
+
+会发现，该主机创建一个网卡，名字是edge-name，ip为192.168.2.2
+
+
+
+在ip地址为`192.168.1.110的主机C上，执行以下命令
+
+```bash
+edge -d edge-name -a 192.168.2.3 -s 255.255.255.0 -c netname -k password -l 192.168.1.101:10000  # 创建一个名为netname的网络，密码是password
+```
+
+会发现，该主机也创建一个网卡，名字是edge-name，ip为192.168.2.3
+
+
+
+在主机B上ping主机C的虚拟IP192.168.2.3，发现可以ping通。
+
+## windows
 
 将编译出的`edge.exe`文件放到`C:\n2n\`文件夹
 
@@ -135,6 +158,8 @@ set N2N_WORK="C:\n2n\"
 
 start cmd /k "cd %N2N_WORK% && edge.exe -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 144.144.144.144:12345"
 ```
+
+
 
 ## 报错处理
 
