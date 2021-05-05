@@ -149,6 +149,24 @@ edge -d edge-name -a 192.168.2.3 -s 255.255.255.0 -c netname -k password -l 192.
 
 ## windows
 
+单纯的n2n无法创建虚拟网卡，需要tap-windows。
+
+安装后，在网络管理页面，设置静态IP地址和网关。
+
+地址和网关需要和启动n2n命令行中的值一致。
+
+安装设置后，按照linux命令启动n2n即可。注意，windows版本中没有-d选项。
+
+
+
+若需要多个n2n，需执行以下命令，创建多个网卡：
+
+```bat
+C:\Program Files\TAP-Windows\bin\tapinstall.exe install driver\OemVista.inf tap0901
+```
+
+
+
 将编译出的`edge.exe`文件放到`C:\n2n\`文件夹
 
 创建bat文件，内容如下
