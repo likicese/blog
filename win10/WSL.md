@@ -10,9 +10,27 @@ wslconfig /setdefault debian
 debian config --default-user root
 ```
 
-## 安装目录
+## 寻找安装目录
 
-C:\Users\用户名\AppData\Local\Packages\TheDebianProject.DebianGNULinux_dfe4gfssgdys\LocalState\rootfs
+打开注册表，找到如下路径
+
+```
+计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss
+```
+
+除默认外，每一条均代表一个wsl。
+
+找到自己需要的wsl，到子目录下，找`BasePath`。该键对应的值就是wsl文件存放目录。目录例子如下：
+
+```
+C:\Users\用户名\AppData\Local\Packages\TheDebianProject.DebianGNULinux_dfe4gfssgdys\LocalState
+```
+
+其中，`rootfs`是根目录
+
+新装系统迁移的时候，直接把文件复制过去覆盖即可。
+
+也可修改该值，将wsl安装目录指向其他位置。
 
 ## 笔记
 
