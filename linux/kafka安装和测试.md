@@ -50,4 +50,5 @@ cd kafka_2.12-2.2.0
 ``` sh
 ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testtopic --from-beginning  # 加上 --from-beginning 参数会从开始打印，去掉则从当前开始打印。
 
+./bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic testtopic --time 1520932400000  # 获取时间戳所在的偏移量。时间戳的单位是毫秒
 ```
