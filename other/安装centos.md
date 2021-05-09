@@ -102,3 +102,19 @@ ONBOOT="yes"             #是否开机启用
 重启网卡命令：
 
 > systemctl restart network
+
+## 报错
+
+### kernel和kernel-devel版本不匹配
+
+``` eorro
+common.mk:85: *** Kernel header files not in any of the expected locations.
+common.mk:86: *** Install the appropriate kernel development package, e.g.
+common.mk:87: *** kernel-devel, for building kernel modules and try again.  Stop.
+```
+
+内核寻找有问题。升级kernel即可
+
+``` bash
+yum install -y kernel
+```
