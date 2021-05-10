@@ -118,3 +118,14 @@ common.mk:87: *** kernel-devel, for building kernel modules and try again.  Stop
 ``` bash
 yum install -y kernel
 ```
+
+
+### bios中开启安全模式，禁止加载第三方驱动
+
+执行`modprobe e1000e`报错如下
+
+``` eorro
+modprobe: ERROR: could not insert 'e1000e': Required key not available
+```
+
+去bios中将安全模式关闭
