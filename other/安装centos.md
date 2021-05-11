@@ -129,3 +129,12 @@ modprobe: ERROR: could not insert 'e1000e': Required key not available
 ```
 
 去bios中将安全模式关闭
+
+## 整盘拷贝
+
+``` bash
+dd if=/dev/zero of=/root/test.txt bs=1G count=100  # 测试硬盘速度
+
+dd if=/dev/nvme0n1 of=/dev/nvme1n1  # 将/dev/nvme0n1的文件拷入/dev/nvme1n1
+watch -n 5 pkill -USR1 ^dd$  # 查看复制进度
+```
