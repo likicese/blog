@@ -91,3 +91,14 @@ wmm_enabled=1 # QoS
 ```
 
 执行`hostapd /etc/hostapd/hostap-bu.conf`即可开启。
+
+### 参考
+
+[Hostapd - Gentoo Wiki](https://wiki.gentoo.org/wiki/Hostapd)
+
+[802.11ac 5Ghz wifi AP in RPI 3 B+ · Issue #2619 · raspberrypi/linux · GitHub](https://github.com/raspberrypi/linux/issues/2619)
+
+[bandwith of 802.11ac hostapd model in R-Pi 4B - Raspberry Pi Forums](https://www.raspberrypi.org/forums/viewtopic.php?t=265646)
+
+[Raspberry Pi 4 - Hotspot - 802.11ac · Issue #450 · RaspAP/raspap-webgui · GitHub](https://github.com/RaspAP/raspap-webgui/issues/450)
+
