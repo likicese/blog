@@ -102,3 +102,16 @@ wmm_enabled=1 # QoS
 
 [Raspberry Pi 4 - Hotspot - 802.11ac · Issue #450 · RaspAP/raspap-webgui · GitHub](https://github.com/RaspAP/raspap-webgui/issues/450)
 
+### 测试
+
+新卡的速度基本是旧卡速度的2倍。因为周遭wifi过多，时常掉线问题也被解决。
+
+比较奇怪的是，虽然RTL8812BU配置文件是wifi5，但还是无法启动wifi5，可能是哪里不支持吧。
+
+| wifi标准 | 频率   | 原网卡                     | RTL8812BU                  |
+| -------- | ------ | -------------------------- | -------------------------- |
+| wifi4    | 2.4GHZ | 5MiB/s                     |                            |
+| wifi4    | 5GHZ   | 7MiB/s                     | 12MiB/s（协调速率144Mbps） |
+| wifi4    | 5GHZ   |                            | 20MiB/s（协调速率300Mbps） |
+| wifi5    | 2.4GHZ |                            |                            |
+| wifi5    | 5GHZ   | 10MiB/s（协调速率433Mbps） |                            |
