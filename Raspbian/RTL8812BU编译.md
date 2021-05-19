@@ -115,3 +115,40 @@ wmm_enabled=1 # QoS
 | wifi4    | 5GHZ   |                            | 20MiB/s（协调速率300Mbps） |
 | wifi5    | 2.4GHZ |                            |                            |
 | wifi5    | 5GHZ   | 10MiB/s（协调速率433Mbps） |                            |
+
+## 配置为wlan
+
+注意，做这个配置前，wlan1的dhcp和static配置最好清除掉。
+
+否则机器一旦重启，dhcp服务找不到192.168.2.1，报告失败。则wlan0分享的AP无法分配IP地址。
+
+
+
+编辑文件`/etc/network/interfaces`，写入以下内容
+
+```
+allow-hotplug wlan1
+iface wlan1 inet dhcp
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+
+
+编辑文件`/etc/wpa_supplicant/wpa_supplicant.conf`，写入以下内容
+
+```config
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=CN
+
+network={
+        ssid="wifi123"
+        psk="12345678"
+        key_mgmt=WPA-PSK
+        priority=1
+}
+```
+
+
+
+执行`ifup wlan1`即可激活
