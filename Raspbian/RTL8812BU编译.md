@@ -152,3 +152,11 @@ network={
 
 
 执行`ifup wlan1`即可激活
+
+### 参考
+
+[Chapter 5. Network setup (debian.org)](https://www.debian.org/doc/manuals/debian-reference/ch05.en.html)
+
+### 测试
+
+此模式下，速率不理想。大概6MiB/s~8MiB/s左右。
