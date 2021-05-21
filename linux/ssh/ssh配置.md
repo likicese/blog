@@ -76,6 +76,6 @@ ssh root@192.168.1.1 -o PasswordAuthentication=yes
 ## 设置ssh流量转发
 
 ```bash
-ssh -gNfD 127.0.0.1:1080 root@192.168.1.1  # 设置socket5代理
+ssh -gNfD 127.0.0.1:1080 root@192.168.1.1  # 设置socket5代理，并且后台运行。去掉f参数则是前台运行。
 ```
 
