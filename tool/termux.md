@@ -17,3 +17,16 @@ https://www.sqlsec.com/2018/05/termux.html
 ``` config
 bell-character = ignore
 ```
+
+
+## 运行其他系统
+
+以下以运行ubuntu为例
+
+```
+apt install -y proot git
+cd ~
+git clone https://github.com/MFDGaming/ubuntu-in-termux.git
+bash ./ubuntu.sh -y
+./startubuntu.sh  # 启动ubuntu，并切换到ubuntu的终端
+```
