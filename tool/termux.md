@@ -30,3 +30,20 @@ git clone https://github.com/MFDGaming/ubuntu-in-termux.git
 bash ./ubuntu.sh -y
 ./startubuntu.sh  # 启动ubuntu，并切换到ubuntu的终端
 ```
+
+运行vs code（以下命令在ubuntu的终端中执行）
+
+```
+apt update; apt upgrade
+apt install wget
+cd /opt
+wget https://github.com/cdr/code-server/releases/download/v3.10.2/code-server-3.10.2-linux-arm64.tar.gz
+tar -xf code-server-3.10.2-linux-arm64.tar.gz
+echo "export PATH=$PATH:/opt/code-server/bin" >> /etc/profile
+ln -s ./code-server-3.10.2-linux-arm64/ code-server
+
+exit  # 退出
+./startubuntu.sh  # 重进
+code-server  # 启动
+cat ~/.config/code-server/config.yaml  # 密码在这
+```
