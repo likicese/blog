@@ -28,5 +28,6 @@ sed -ir "/aaaaaaa/ i bbbbbbb" <fileName>  # 在aaaaaaa前边插入bbbbbbb。-r�
 ```bash
 sed '/2/d' <fileName>  # 删除包含“2”的行
 sed '/1/,/5/d'  # 删除第1~5行
+sed '/^\s*$/d' <fileName>  # 删除纯空行
 ```
 
