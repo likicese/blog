@@ -79,3 +79,14 @@ ssh root@192.168.1.1 -o PasswordAuthentication=yes
 ssh -gNfD 127.0.0.1:1080 root@192.168.1.1  # 设置socket5代理，并且后台运行。去掉f参数则是前台运行。
 ```
 
+## 批量禁止密码登陆
+
+```
+#!/bin/bash
+
+for((i=1;i<=254;i++));
+do
+ssh 192.168.1.$i "sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config; systemctl restart sshd"
+echo $i;
+done
+```
