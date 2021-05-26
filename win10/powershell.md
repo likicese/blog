@@ -14,3 +14,11 @@ windows个人版本的powershell没有执行脚本的权限，需要主动修改
 ```
 set-ExecutionPolicy RemoteSigned  # 脚本可以运行，要求有受信的签名
 ```
+
+## 设置终端代理
+
+```powershell
+set http_proxy=socks5://127.0.0.1:1080
+set https_proxy=socks5://127.0.0.1:1080
+```
+
