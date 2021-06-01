@@ -23,6 +23,12 @@ ubuntu:
 apt install cmake gcc-c++ build-essential libssl-dev
 ```
 
+centos
+
+``` bash
+yum -y install cmake gcc-c++ openssl-devel 
+```
+
 #### 编译
 
 ``` shell
