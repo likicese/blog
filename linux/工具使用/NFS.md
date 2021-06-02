@@ -26,8 +26,9 @@ yum install rpcbind
 ### 启动服务器
 
 ``` bash
-systemctl start rpcbind.service
-systemctl start nfs-service
+systemctl start rpcbind
+systemctl start nfs
+systemctl enable nfs  # 设置开机启动
 ```
 
 ## 客户端
@@ -35,7 +36,11 @@ systemctl start nfs-service
 ### 连入NFS服务
 
 ``` bash
-mount -t nfs 192.168.1.100:/opt/share /opt/share
+yum install nfs-utils
+showmount -e 192.168.1.100  # 查看nfs主机允许挂载的情况
+mount -t nfs 192.168.1.100:/opt/share /opt/share  # 挂载
+
+df -Th  # 查看挂载的nfs
 ```
 
 ### 设置自动挂载NFS
