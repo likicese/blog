@@ -20,3 +20,27 @@ yum install -y jenkins-2.274-1.1.noarch.rpm  # 安装
 ```
 
 jenkins默认开机启动，不需要重复设置
+
+### 报错
+
+#### 重复安装
+
+```
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+stat: cannot stat ‘/var/cache/jenkins’: No such file or directory
+stat: cannot stat ‘/var/log/jenkins’: No such file or directory
+stat: cannot stat ‘/var/lib/jenkins’: No such file or directory
+error: %pre(jenkins-2.274-1.1.noarch) scriptlet failed, exit status 1
+Error in PREIN scriptlet in rpm package jenkins-2.274-1.1.noarch
+
+  Verifying  : jenkins-2.274-1.1.noarch                                                                                                 1/1
+
+Failed:
+  jenkins.noarch 0:2.274-1.1
+
+Complete!
+```
+
