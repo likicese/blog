@@ -44,3 +44,19 @@ Failed:
 Complete!
 ```
 
+#### 解决
+
+[参考](https://blog.csdn.net/baidu_33864675/article/details/105015462)
+
+执行以下语句，看看执行结果
+
+```bash
+rpm --scripts -qp jenkins-2.274-1.1.noarch.rpm > jenkins.log
+```
+
+查看`/etc/sysconfig/jenkins`是否存在，存在则删除。
+
+然后在重新安装。
+
+
+
