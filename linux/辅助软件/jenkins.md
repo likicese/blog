@@ -60,3 +60,23 @@ rpm --scripts -qp jenkins-2.274-1.1.noarch.rpm > jenkins.log
 
 
 
+## 更换清华插件源
+
+### 在web中修改更新源
+
+Manage Jenkins -> Manage Plugins -> Advanced
+
+将`Update Site`的URL改为：
+
+``` url
+https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+```
+
+或者改为：
+
+```
+http://mirror.xmission.com/jenkins/updates/update-center.json
+```
+
+点击`submit`，再点击`Check now`。此操作会更新default.json文件
+
