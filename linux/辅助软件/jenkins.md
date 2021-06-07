@@ -80,3 +80,35 @@ http://mirror.xmission.com/jenkins/updates/update-center.json
 
 点击`submit`，再点击`Check now`。此操作会更新default.json文件
 
+### 在ssh中修改default.json文件
+
+由于是用yum安装，所以配置为`/var/lib/jenkins/updates/default.json`用其他方法安装jenkins，可能配置文件不在这个位置
+
+
+
+将`http://www.google.com`换为`http://www.baidu.com/`
+
+将`updates.jenkins.io/download`换为`mirrors.tuna.tsinghua.edu.cn/jenkins`
+
+
+``` bash
+# 可以直接执行以下的替换命令
+
+sed -i 's#updates.jenkins.io/download/plugins#mirrors.tuna.tsinghua.edu.cn/jenkins/plugins#g' default.json && sudo sed -i 's#www.google.com#www.baidu.com#g' default.json
+```
+
+
+
+### 重启jenkins
+
+```bash
+systemctl restart jenkins  # 以非rpm方式安装，可能不是这个命令
+```
+
+## 插件
+
+[promoted builds](https://plugins.jenkins.io/promoted-builds)：手动可选择执行命令
+
+[Maven Integration](https://plugins.jenkins.io/maven-plugin)：maven项目构建
+
+[Git plugin](https://plugins.jenkins.io/git)：拉取git的代码
