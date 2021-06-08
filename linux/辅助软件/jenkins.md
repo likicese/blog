@@ -112,3 +112,10 @@ systemctl restart jenkins  # 以非rpm方式安装，可能不是这个命令
 [Maven Integration](https://plugins.jenkins.io/maven-plugin)：maven项目构建
 
 [Git plugin](https://plugins.jenkins.io/git)：拉取git的代码
+
+## 凭据
+
+### 添加凭据
+
+Manage Jenkins -> Manage Credentials -> jenkins（Stores scoped to下） -> 全局凭据 (unrestricted) -> Add Credentials
+
