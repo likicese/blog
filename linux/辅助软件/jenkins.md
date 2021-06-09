@@ -119,3 +119,29 @@ systemctl restart jenkins  # 以非rpm方式安装，可能不是这个命令
 
 Manage Jenkins -> Manage Credentials -> jenkins（Stores scoped to下） -> 全局凭据 (unrestricted) -> Add Credentials
 
+## 项目配置
+
+### 执行脚本的key
+
+ssh到jenkins服务器。
+
+修改/etc/passwd文件，使jenkins可以登录：
+
+`jenkins:x:998:996:Jenkins Automation Server:/var/lib/jenkins:/bin/false`改为`jenkins:x:998:996:Jenkins Automation Server:/var/lib/jenkins:/bin/bash`
+
+执行命令，创建密钥：
+
+```bash
+su jenkins
+ssh-keygen  # 一路回车
+exit
+```
+
+etc/passwd文件改回去。
+
+```bash
+systemctl restart jenkins  # 重启jenkins
+```
+
+如此，就可以直接在脚本中执行shell命令了
+
