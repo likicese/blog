@@ -145,3 +145,20 @@ systemctl restart jenkins  # 重启jenkins
 
 如此，就可以直接在脚本中执行shell命令了
 
+### maven
+
+maven是使用yum安装的。
+
+```bash
+wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+yum install apache-maven
+```
+
+
+
+Clobal Tool Configuration -> Maven installations -> Add Maven
+
+`name` 填入 maven
+
+`MAVEN_HOME` 填入 /usr/share/apache-maven
+
