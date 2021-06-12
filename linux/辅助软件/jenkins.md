@@ -162,3 +162,21 @@ Clobal Tool Configuration -> Maven installations -> Add Maven
 
 `MAVEN_HOME` 填入 /usr/share/apache-maven
 
+### 加载环境变量/etc/profile
+
+`/etc/sysconfig/jenkins`末尾增加`source /etc/profile`，然后重启Jenkins服务
+
+### ssh指纹认证
+
+若开启ssh指纹认证，则会报告如下错误
+
+```
+Host key verification failed
+```
+
+此时可以编辑`/etc/ssh/ssh_config`，添加`StrictHostKeyChecking no`。
+
+关闭jenkins部署机器的指纹认证，会引发一定的安全问题。，可能遭受中间人攻击。
+
+若是不关闭，则需要第一次连接机器时确认一次，以将指纹加入`~/.ssh/known_hosts`中。
+
