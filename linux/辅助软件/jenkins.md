@@ -180,3 +180,10 @@ Host key verification failed
 
 若是不关闭，则需要第一次连接机器时确认一次，以将指纹加入`~/.ssh/known_hosts`中。
 
+### node
+
+```bash
+wget https://cdn.npm.taobao.org/dist/node/v8.12.0/node-v8.12.0-linux-x64.tar.xz
+npm i -g @tarojs/cli@1.3.18  # 指定taro的版本下载
+```
+
