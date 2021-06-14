@@ -187,3 +187,29 @@ wget https://cdn.npm.taobao.org/dist/node/v8.12.0/node-v8.12.0-linux-x64.tar.xz
 npm i -g @tarojs/cli@1.3.18  # 指定taro的版本下载
 ```
 
+## 项目迁移
+
+### jobs
+
+./mv_jenkins.sh /var/lib/jenkins/jobs /opt/jenkins_new
+
+```bash
+#!/bin/bash
+
+job_list=$(ls $1)
+
+for job in $job_list
+do
+echo "复制"$job;
+mkdir $2/$job;
+cp $1/$job/config.xml $2/$job;
+
+if [ -d "$1/$job/promotions" ];
+then
+cp -r $1/$job/promotions $2/$job
+fi
+done
+
+chown -R jenkins.jenkins $2
+```
+
