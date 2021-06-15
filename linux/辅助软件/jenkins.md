@@ -213,3 +213,26 @@ done
 chown -R jenkins.jenkins $2
 ```
 
+## 自动构建
+
+[参考](https://blog.csdn.net/xlgen157387/article/details/76216351)
+
+### jenkins的操作
+
+在jenkins中安装插件：[Generic Webhook Trigger](https://plugins.jenkins.io/generic-webhook-trigger)
+
+在项目的`构建触发器`中勾选`Generic Webhook Trigger`
+
+如下参数需要填写：
+
+```
+Generic Webhook Trigger
+	Post content parameters
+		Variable：ref
+		Expression：$.ref
+		单选：JSONPath
+	Token：o8hKE1nRmJk
+	Optional filter
+		Expression：^(refs/heads/prod)
+		Text：$ref
+```
