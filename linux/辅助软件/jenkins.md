@@ -236,3 +236,22 @@ Generic Webhook Trigger
 		Expression：^(refs/heads/prod)
 		Text：$ref
 ```
+
+### gitlab的操作
+
+在项目的`Settings` -> `Webhooks`页面操作
+
+依照jenkins的提示，URL一栏中填入（以下的JENKINS_URL需要替换为jenkins的IP）：
+
+```
+http://JENKINS_URL/generic-webhook-trigger/invoke
+```
+
+Secret Token一栏填
+```
+o8hKE1nRmJk
+```
+
+选择触发事件，点击add按钮添加，然后可以开始调试。
+
+可以在web页面手动发起各种时候，观察jenkins是否按预想中自动构建
