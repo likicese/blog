@@ -21,3 +21,8 @@ ResultInactive=no
 ResultActive=yes
 ```
 
+## 设置时区
+
+``` bash
+dpkg-reconfigure tzdata
+```
