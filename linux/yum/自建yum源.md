@@ -38,3 +38,28 @@ tar -xf ${MYSQL_FILE}
 yum install createrepo
 createrepo .  # 创建仓库
 ```
+
+## 添加仓库
+
+在192.168.1.3机器上操作
+
+```
+REPO_NAME='mysql'
+REPO_HOST='192.168.1.2'
+
+cat >> /etc/yum.repos.d/${REPO_NAME}.repo  < EOF
+[${REPO_NAME}]
+name=this is private repo
+baseurl=http://${REPO_HOST}/
+gpgcheck=0
+enabled=1
+EOF
+
+yum clean all; yum update
+```
+
+
+
+若是192.168.1.2需要使用yum源，因为在本地，则不需要通过http传输。把`baseurl=http://${REPO_HOST}/`改为`baseurl=file:///srv/www/`即可
+
+
