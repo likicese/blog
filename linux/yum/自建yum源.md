@@ -62,4 +62,22 @@ yum clean all; yum update
 
 若是192.168.1.2需要使用yum源，因为在本地，则不需要通过http传输。把`baseurl=http://${REPO_HOST}/`改为`baseurl=file:///srv/www/`即可
 
+## 更新仓库
 
+例如现获得新的xxx.rpm，要加入该仓库
+
+在192.168.1.2机器上操作
+
+```
+cd /srv/www/
+wget http://xxx.com/xxx.rpm
+createrepo --update .
+```
+
+
+
+在192.168.1.3机器上操作
+
+```
+yum clean all; yum update
+```
