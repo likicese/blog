@@ -35,3 +35,19 @@ C:\Users\用户名\AppData\Local\Packages\TheDebianProject.DebianGNULinux_dfe4gf
 ## 笔记
 
 运行程序时，windows直接管辖的磁盘可能会报告无权限的问题。起因是NTFS格式的磁盘没有linux中属主、属组之类的概念。遇到此类情况，将文件复制到linux目录下即可
+
+## 修改挂载windows磁盘默认权限是777的问题
+
+wsl启动后，windows的文件全部是绿色。看着十分不舒服。
+
+新建或修改文件：/etc/wsl.conf，内容如下：
+
+``` config
+[automount]
+enabled = true
+root = /mnt/
+options = "metadata,dmask=022,fmask=133"
+mountFsTab = false
+```
+
+[参考](https://docs.microsoft.com/zh-cn/windows/wsl/wsl-config)
