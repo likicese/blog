@@ -49,3 +49,37 @@ KeePassHttp-Connector，似乎原名是ChromeIpass
 使用密码：当url匹配时，chrome的插件会向keepass发送一条信息，确认授权请求。此时图标将会发亮。点击允许且记住该操作。以后，每当访问该页面时，chrome插件图标就会亮起，此时可以选择账户。
 
 保存密码：在用户名、密码输入界面，有一把小锁。输入用户名后，点击小锁，输入密码。然后点击`fill in`，登录成功后，chrome插件发亮，询问是否保存密码。保存即可。通过该方式保存的密码，默认放在KeePassHttp Passwords文件夹下。
+
+## 在ubuntu中
+
+### 安装
+
+```
+sudo apt install keepass2  # 安装本体
+sudo apt install keepass2-plugin-keepasshttp  # 安装http拓展
+```
+
+
+
+### 解决中文乱码
+
+修改脚本`/usr/bin/keepass2`，使其在启动前先加载语言集。添加以下内容
+
+```
+export LANG=zh_CN.utf8
+```
+
+
+
+修改系统字体设置，在文件`/etc/fonts/conf.avail/65-nonlatin.conf`中，添加以下内容
+
+```
+<alias>
+	<family>Ubuntu</family>
+	<prefer>
+		<family>sans-serif</family>
+	</prefer>
+</alias>
+```
+
+重启keepass2即可
