@@ -17,6 +17,8 @@ set-ExecutionPolicy RemoteSigned  # 脚本可以运行，要求有受信的签�
 
 ## 命令别名设置
 
+需要按如上所示，修改脚本执行策略，才能在启动终端时执行该文件
+
 ``` powershell
 echo $PROFILE  # 查看启动的时候会加载的文件，类似于linux中的~/.bashrc
 mkdir -p C:\Users\<你的用户名>\Documents\WindowsPowerShell\  # 创建文件存放的文件夹，避免因为文件夹不存在而创建文件失败
@@ -30,3 +32,16 @@ function s_dev function vim_hosts {ssh 192.168.1.10}  # 示例。跳到一台服
 ```
 
 保存，重开powershll，执行`s_dev`，即可生效
+
+## 删除不用的别名
+
+powershell中的`curl`是`Invoke-WebRequest`的别名，该命令和curl不兼容，需要删除别名设置。
+
+由于没相应设置，只能通过终端启动时预加载文件动态删除……
+
+在前一节中的`$PROFILE`文件中加入如下语句即可
+
+```powershell
+Remove-Item alias:curl
+```
+
