@@ -64,4 +64,11 @@ GSSAPI无法验证，直至超时。
 
 ``` config
 GSSAPIAuthentication no
+UseDNS no
+```
+
+## 用私钥计算公钥
+
+``` bash
+ssh-keygen -y -f ~/.ssh/id_rsa  # 计算公钥
 ```
