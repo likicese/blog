@@ -71,6 +71,7 @@ ssh uat  # 跳转到uat服务器
 
 ```bash
 ssh root@192.168.1.1 -o PasswordAuthentication=yes
+ssh root@192.168.1.1 -o PreferredAuthentications=password -o PubkeyAuthentication=no
 ```
 
 ## 设置ssh流量转发
