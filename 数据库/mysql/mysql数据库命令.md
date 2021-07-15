@@ -96,6 +96,7 @@ set global validate_password.policy=0;  # 密码验证低要求
 flush privileges;  # 刷新权限。设定用户相关后使用
 show processlist;  # 显示当前执行的线程
 select * from sys.`innodb_lock_waits`;  # 查找当前等待锁的线程
+select * from information_schema.processlist WHERE HOST like '%1.9%'  # 查询192.168.1.9的mysql连接数
 ```
 
 ### 复制一张表
