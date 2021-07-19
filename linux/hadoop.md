@@ -1,5 +1,28 @@
 # hadoop
 
+## 安装脚本
+
+``` bash
+function get_file() {
+    mkdir /opt/package
+    cd /opt/package
+    wget https://www.apache.org/dyn/closer.lua/spark/spark-3.0.1/spark-3.0.1-bin-without-hadoop.tgz
+    wget https://mirror.bit.edu.cn/apache/spark/spark-3.0.1/spark-3.0.1-bin-without-hadoop.tgz
+
+    tar -xf hadoop-3.2.1.tar.gz
+    tar -xf spark-3.0.1-bin-without-hadoop.tgz
+
+    mv hadoop-3.2.1 ../
+    mv spark-3.0.1-bin-without-hadoop ../
+    cd ..
+    ln -s spark-3.0.1-bin-without-hadoop/ spark
+    ln -s hadoop-3.2.1/ hadoop
+}
+
+
+```
+
+
 ## 开启日志轮转
 
 编辑文件：${HADOOP_HOME}/etc/hadoop/yarn-site.xml，加入如下内容
