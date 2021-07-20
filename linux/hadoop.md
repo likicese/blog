@@ -19,6 +19,23 @@ function get_file() {
     ln -s hadoop-3.2.1/ hadoop
 }
 
+function set_variable() {
+    HOST_IP_HADOOP01='192.168.1.1'
+    HOST_IP_HADOOP02='192.168.1.2'
+    HOST_IP_HADOOP03='192.168.1.3'
+
+    HOST_IP_ZOOKEEPER01='192.168.1.4'
+    HOST_IP_ZOOKEEPER02='192.168.1.5'
+    HOST_IP_ZOOKEEPER03='192.168.1.6'
+
+    cat >>/etc/hosts <<EOF
+
+${HOST_IP_HADOOP01} hadoop01-dev
+${HOST_IP_HADOOP02} hadoop02-dev
+${HOST_IP_HADOOP03} hadoop03-dev
+EOF
+}
+
 
 ```
 
