@@ -36,6 +36,33 @@ ${HOST_IP_HADOOP03} hadoop03-dev
 EOF
 }
 
+function hadoop() {
+    cat >>/opt/hadoop/etc/hadoop/hadoop-env.sh <<EOF
+
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+export HADOOP_SHELL_EXECNAME=root
+export JAVA_HOME=/usr/java/default
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_PID_DIR=/opt/hadoop/pid
+
+EOF
+
+    sed -i '/^localhost$/ d' /opt/hadoop/etc/hadoop/workers
+    cat >>/opt/hadoop/etc/hadoop/workers <<EOF
+hadoop01-dev
+hadoop02-dev
+hadoop03-dev
+EOF
+
+    # 集群中用于应用程序的上限从0.1提高到0.8
+    sed -i ':a;N;s/    <name>yarn.scheduler.capacity.maximum-am-resource-percent<\/name>\n    <value>0.1/    <name>yarn.scheduler.capacity.maximum-am-resource-percent<\/name>\n    <value>0.8/' /opt/hadoop/etc/hadoop/capacity-scheduler.xml
+
+    # 设置命令
+    echo "export PATH=\$PATH:/opt/hadoop/bin" >>/etc/profile
+}
+
 
 ```
 

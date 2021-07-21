@@ -6,6 +6,7 @@
 yum repolist all  # 查看所有repo源
 yum list mysql-community* --showduplicates | sort -r  # 查看mysql软件可安装版本。后边用管道符排序
 yum install mysql-community-server-8.0.19-1.el7  # 安装特定版本mysql。注意，当有依赖项的时候，会自动找复合条件的最高版本。此时可能出现版本冲突，需要一步步指定低版本
+yum install --downloadonly mysql-community-server  # 先下载到本地，需要的时候可以直接install安装
 
 yum clean all  # 清除缓存目录下的软件包和旧headers
 yum info vim  # 查看vim的信息
