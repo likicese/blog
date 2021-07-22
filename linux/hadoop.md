@@ -63,6 +63,52 @@ EOF
     echo "export PATH=\$PATH:/opt/hadoop/bin" >>/etc/profile
 }
 
+function hdfs() {
+    sed -i 's/HADOOP_SHELL_EXECNAME="hdfs"/HADOOP_SHELL_EXECNAME="root"/' /opt/hadoop/bin/hdfs
+
+    HOSTNAME='hadoop01-dev'
+
+    mkdir -p /opt/hadoop_dfs/{name,data,namesecondary,mapred/{local,system}}
+
+    sed -i '/<configuration>/a\
+    <property>\
+        <name>fs.default.name</name>\
+        <value>hdfs://${HOSTNAME}/</value>\
+        <final>true</final>\
+    </property>\
+    <property>\
+        <name>hadoop.logfile.size</name>\
+        <value>100000000</value>\
+        <description>The max size of each log file</description>\
+    </property>\
+    <property>\
+        <name>hadoop.logfile.count</name>\
+        <value>10</value>\
+        <description>The max number of log files</description>\
+    </property>\
+' /opt/hadoop/etc/hadoop/core-site.xml
+
+    sed -i '/<configuration>/a\
+    <property>\
+        <name>dfs.name.dir</name>\
+        <value>/opt/hadoop_dfs/name</value>\
+        <final>true</final>\
+    </property>\
+    <property>\
+        <name>dfs.data.dir</name>\
+        <value>/opt/hadoop_dfs/data</value>\
+        <final>true</final>\
+    </property>\
+    <property>\
+        <name>fs.checkpoint.dir</name>\
+        <value>/opt/hadoop_dfs/namesecondary</value>\
+        <final>true</final>\
+    </property>\
+' /opt/hadoop/etc/hadoop/hdfs-site.xml
+
+    /opt/hadoop/bin/hadoop namenode -format
+}
+
 
 ```
 
