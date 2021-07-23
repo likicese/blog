@@ -17,3 +17,9 @@ show biglog events in "mysql-binlog.000517";  # 查看指定文件内容
 mysqlbinlog --start-datetime='2020-12-15 00:00:00' --stop-datetime='2020-12-25 23:23:23' -d mydbname mysql-binlog.000517  # 查看名为mysql-binlog.000517的文件内容
 ```
 
+## 维护
+
+``` mysql
+PURGE MASTER LOGS BEFORE '2021-07-15 00:00:00';  # 删除该日期之前的日志
+PURGE MASTER LOGS TO 'binlog.000111';  # 删除这个编号之前的binlog
+```

@@ -41,7 +41,15 @@ powershell中的`curl`是`Invoke-WebRequest`的别名，该命令和curl不兼�
 
 在前一节中的`$PROFILE`文件中加入如下语句即可
 
-```powershell
+``` powershell
 Remove-Item alias:curl
 ```
 
+## 建立端口转发
+
+注意，以下语句应使用管理员权限运行
+
+``` powershell
+# 给远程主机建立ssh转发端口
+netsh interface portproxy add v4tov4 listenport=10022 connectport=22 connectaddress=192.168.1.12
+```
