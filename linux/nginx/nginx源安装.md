@@ -16,4 +16,7 @@ gpgkey=https://nginx.org/keys/nginx_signing.key
 module_hotfixes=true
 ```
 
-执行`yum install nginx` 
+```bash
+yum update  # 更新源。可能会询问是否更新软件包，输入N即可。
+yum install nginx  # 安装
+```
