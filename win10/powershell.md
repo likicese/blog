@@ -53,3 +53,4 @@ Remove-Item alias:curl
 # 给远程主机建立ssh转发端口
 netsh interface portproxy add v4tov4 listenport=10022 connectport=22 connectaddress=192.168.1.12
 ```
+
