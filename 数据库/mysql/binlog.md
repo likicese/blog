@@ -23,3 +23,16 @@ mysqlbinlog --start-datetime='2020-12-15 00:00:00' --stop-datetime='2020-12-25 2
 PURGE MASTER LOGS BEFORE '2021-07-15 00:00:00';  # 删除该日期之前的日志
 PURGE MASTER LOGS TO 'binlog.000111';  # 删除这个编号之前的binlog
 ```
+
+## 日志过期时间
+
+``` mysql
+show variables like '%expire%';  # 相关变量
+```
+
+mysql8之后，使用变量`binlog_expire_logs_seconds`和`expire_logs_days`
+
+``` mysql
+set global binlog_expire_logs_seconds=604800;  # 设置变量，只留7天
+flush logs;  # 刷新
+```
