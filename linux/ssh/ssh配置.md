@@ -67,6 +67,13 @@ ssh route  # 跳转到route服务器
 ssh uat  # 跳转到uat服务器
 ```
 
+## 不使用配置直接跳转
+
+``` bash
+# 10.1.0.2是目标机，10.1.0.1时跳板机
+ssh root@10.1.0.2 -o ProxyCommand='ssh go@10.0.0.1 -p 5555 -W %h:%p'
+```
+
 ## 强制使用密码连接ssh
 
 ```bash
