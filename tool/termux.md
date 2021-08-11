@@ -10,7 +10,7 @@ https://www.sqlsec.com/2018/05/termux.html
 
 ## 技巧
 
-### tab补全，机器震动
+### 取消tab补全时机器震动机制
 
 编辑文件`$HOME/.termux/termux.properties`。配置以下项即可
 
@@ -18,6 +18,11 @@ https://www.sqlsec.com/2018/05/termux.html
 bell-character = ignore
 ```
 
+### 解决手机熄屏后，程序反应缓慢问题
+
+```bash
+termux-wake-lock  # 切换到后台运行，依旧保持运行
+```
 
 ## 运行其他系统
 
