@@ -109,6 +109,85 @@ function hdfs() {
     /opt/hadoop/bin/hadoop namenode -format
 }
 
+function yarn() {
+    sed -i '/<\/configuration>/d' /opt/hadoop/etc/hadoop/yarn-site.xml
+
+    cat >>/opt/hadoop/etc/hadoop/yarn-site.xml <<EOF
+<property>
+    <name>yarn.resourcemanager.hostname</name>
+    <value>hadoop01-dev</value>
+</property>
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+</property>
+<property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+    <description>The address of the applications manager interface in the RM.</description>
+    <name>yarn.resourcemanager.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8032</value>
+</property>
+<property>
+    <description>The address of the scheduler interface.</description>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8030</value>
+</property>
+<property>
+    <description>The http address of the RM web application.</description>
+    <name>yarn.resourcemanager.webapp.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8088</value>
+</property>
+<property>
+    <description>The https adddress of the RM web application.</description>
+    <name>yarn.resourcemanager.webapp.https.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8090</value>
+</property>
+<property>
+    <name>yarn.resourcemanager.resource-tracker.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8031</value>
+</property>
+<property>
+    <description>The address of the RM admin interface.</description>
+    <name>yarn.resourcemanager.admin.address</name>
+    <value>\${yarn.resourcemanager.hostname}:8033</value>
+</property>
+<property>
+    <name>yarn.nodemanager.local-dirs</name>
+    <value>/opt/hadoop_dfs/yarn/local</value>
+</property>
+<property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+</property>
+<property>
+    <name>yarn.nodemanager.remote-app-log-dir</name>
+    <value>/opt/hadoop_dfs/data/tmp/logs</value>
+</property>
+<property>
+    <name>yarn.log.server.url</name>
+    <value>http://\${yarn.resourcemanager.hostname}:19888/jobhistory/logs</value>
+</property>
+<property>
+    <name>yarn.nodemanager.vmem-check-enabled</name>
+    <value>false</value>
+</property>
+<property>
+    <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+    <value>0.8</value>
+</property>
+</configuration>
+EOF
+
+    cat >>/opt/hadoop/etc/hadoop/yarn-env.sh <<EOF
+export YARN_RESOURCEMANAGER_USER=root
+export HADOOP_SECURE_DN_USER=yarn
+export YARN_NODEMANAGER_USER=root
+EOF
+}
+
 
 ```
 
