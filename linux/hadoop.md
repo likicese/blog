@@ -188,6 +188,28 @@ export YARN_NODEMANAGER_USER=root
 EOF
 }
 
+function spark() {
+    cat >>/opt/spark/conf/slaves <<EOF
+hadoop01-dev
+hadoop02-dev
+hadoop03-dev
+EOF
+
+    cat >/opt/spark/conf/spark-env.sh <<EOF
+export SPARK_DIST_CLASSPATH=$(/opt/hadoop/bin/hadoop classpath)
+export JAVA_HOME=/usr/java/default
+export HADOOP_HOME=/opt/hadoop
+export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
+export SPARK_WORKER_MEMORY=512m
+export SPARK_WORKER_CORES=3
+export SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=${HOST_IP_ZOOKEEPER01}:2181,${HOST_IP_ZOOKEEPER02}:2181,${HOST_IP_ZOOKEEPER03}:2181 -Dspark.deploy.zookeeper.dir=/spark-test"
+export SPARK_EXECUTOR_MEMORY=1.5g
+export SPARK_DRIVER_MEMORY=8g
+EOF
+}
+
+
+
 
 ```
 
