@@ -210,7 +210,52 @@ EOF
 
 
 
+function node_add_start_in_power_on() {
+    cat >/etc/rc.local <<EOF
 
+sleep 30
+/opt/spark/sbin/start-master.sh
+/opt/spark/sbin/start-slave.sh spark://hadoop01-dev:7077,hadoop02-dev:7077,hadoop03-dev:7077
+EOF
+chmod +x /etc/rc.local
+}
+
+function master_add_start_in_power_on() {
+    cat >/etc/rc.local <<EOF
+
+/opt/hadoop/sbin/start-dfs.sh
+/opt/hadoop/sbin/start-yarn.sh
+/opt/spark/sbin/start-master.sh
+/opt/spark/sbin/start-slave.sh spark://hadoop01-dev:7077,hadoop02-dev:7077,hadoop03-dev:7077
+EOF
+chmod +x /etc/rc.local
+}
+
+function share_id_rsa() {
+# 私钥共享
+ssh hadoop02-dev "mkdir -p ~/.ssh/"
+scp /root/.ssh/id_rsa hadoop02-dev:~/.ssh/
+ssh hadoop03-dev "mkdir ~/.ssh/"
+scp /root/.ssh/id_rsa hadoop03-dev:~/.ssh/
+}
+
+get_file
+set_variable
+hdfs
+yarn
+spark
+
+
+# 前边大家配置都一样，不同在最后。建议先部署master，再部署node。对应不同的机器，放开不同的注释就行。
+
+########## node请放开以下注释 #########
+# node_add_start_in_power_on
+########## node请放开以上注释 #########
+
+########## master请放开以下注释 #########
+# master_add_start_in_power_on
+# share_id_rsa
+########## node请放开以上注释 #########
 ```
 
 
