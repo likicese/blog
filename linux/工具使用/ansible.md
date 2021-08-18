@@ -1,5 +1,27 @@
 # ansible
 
+## 安装
+
+``` bash
+yum install -y python3
+pip3 install -U pip
+pip3 install ansible
+```
+
+### 报错
+
+#### No module named 'setuptools_rust'
+
+原因：pip版本过低
+
+解决：升级pip版本即可
+
+``` bash
+pip3 install -U pip 
+```
+
+
+
 ## hosts
 
 编辑`/etc/ansible/hosts`
