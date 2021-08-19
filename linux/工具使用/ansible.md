@@ -20,7 +20,28 @@ pip3 install ansible
 pip3 install -U pip 
 ```
 
+## 使用
 
+### 解决python版本过低，提示DEPRECATION WARNING的问题
+
+``` bash
+mkdir /etc/ansible/
+cat > /etc/ansible/ansible.cfg << EOF
+[defaults]
+deprecation_warnings=False
+EOF
+```
+
+## 添加配置
+
+``` bash
+mkdir /var/log/ansiable/
+cat >> /etc/ansible/ansible.cfg << EOF
+host_key_checking = False
+log_path = /var/log/ansiable/ansible.log
+EOF
+
+```
 
 ## hosts
 

@@ -87,7 +87,21 @@ ssh root@192.168.1.1 -o PreferredAuthentications=password -o PubkeyAuthenticatio
 ssh -gNfD 127.0.0.1:1080 root@192.168.1.1  # 设置socket5代理，并且后台运行。去掉f参数则是前台运行。
 ```
 
-## 批量禁止密码登陆
+## 检查是否允许密码登录
+
+``` bash
+for((i=1;i<=254;i++));
+do
+echo "检查机器：192.168.1.${i}"
+sshpass -p 123 ssh root@192.168.1.${i} -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=2
+if [ $? -eq 5 ];
+then
+echo "canPassword "192.168.1.${i}
+fi
+done
+```
+
+## 批量禁止密码登录
 
 ```
 #!/bin/bash
