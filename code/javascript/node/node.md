@@ -4,21 +4,23 @@
 
 官网下载：https://nodejs.org/en/download/
 
-淘宝的cdn下载：
+也可以用淘宝的cdn下载
+
+整个脚本如下，可以通过更改版本号下载不同的版本：
 
 ``` bash
-wget https://cdn.npm.taobao.org/dist/node/v14.15.0/node-v14.15.0-linux-x64.tar.xz
-```
+VERSION="v14.17.5"
+PACKAGE_NAME="node-${VERSION}-linux-x64"
+wget https://npm.taobao.org/mirrors/node/${VERSION}/${PACKAGE_NAME}.tar.xz
 
-将压缩包解压到/usr/local/
+tar -xf ${PACKAGE_NAME}.tar.xz
+mv ${PACKAGE_NAME} /usr/local/node
 
-做软链接 `ln -s node-v12.18.3-linux-x64/ node`。
+cat >> /etc/profile << EOF
 
-在 `/etc/profile` 文件中加入如下文字
-
-``` txt
-export NODE=/usr/local/node/bin
-export PATH=${NODE}:${PATH}
+export NODE_HOME=/usr/local/node
+export PATH=\$NODE_HOME/bin:\$PATH
+EOF
 ```
 
 ## 命令
@@ -28,4 +30,15 @@ npm install -–unsafe-perm xx  # 强制用root用户执行当前的安装命令
 npm install --unsafe-perm=true --allow-root  xx  # 加强版
 npm install --registry=https://registry.npm.taobao.org express  # 指定淘宝源安装express
 npm install --prefix /opt/lib -g express  # 换一个全局路径安装express，避免版本冲突的q'kuan
+```
+
+## 设置变量
+
+### 设置模块安装的位置
+
+``` bash
+npm config set registry https://registry.npm.taobao.org
+npm set cache D:\nodejs\node_cache
+npm set prefix D:\nodejs\node_global  # D:\nodejs\node_global 需要设置到环境变量，才能将安装的软件直接在cmd中使用
+npm config ls
 ```
