@@ -255,3 +255,23 @@ o8hKE1nRmJk
 选择触发事件，点击add按钮添加，然后可以开始调试。
 
 可以在web页面手动发起各种时候，观察jenkins是否按预想中自动构建
+
+## 使用中的问题
+
+### 一个项目的构建会引起另外若干个项目的构建
+
+#### 原因
+
+jenkins会自动比较项目之间的上下游关系
+
+发现两个项目具备上下游关系的话，会自动进行依赖构建
+
+#### 解决
+
+上下游项目均取消勾选`Build whenever a SNAPSHOT dependency is built`
+
+### 强制停止一个程序
+
+``` bash
+ssh root@192.168.1.1 "ps -ef | grep java | grep programName | grep -v bash | awk '{print \$2}' | xargs -i kill -9 {}"
+```
