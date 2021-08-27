@@ -113,11 +113,27 @@ common.mk:86: *** Install the appropriate kernel development package, e.g.
 common.mk:87: *** kernel-devel, for building kernel modules and try again.  Stop.
 ```
 
-内核寻找有问题。升级kernel即可
+1. kernel-header的版本不匹配，去centos的历史包中下载对应当前的内核版本的rpm安装包
+
+[下载连接](https://vault.centos.org/7.5.1804/updates/x86_64/Packages/)
+
+2. 没找到相应的文件，做软连接
+
+以下载[kernel-devel](https://vault.centos.org/7.5.1804/updates/x86_64/Packages/kernel-devel-3.10.0-862.11.6.el7.x86_64.rpm)和[kernel-header](https://vault.centos.org/7.5.1804/updates/x86_64/Packages/kernel-headers-3.10.0-862.11.6.el7.x86_64.rpm)为例
+
+``` bash
+cd /usr/src/kernels/
+ln -s 3.10.0-862.11.6.el7.x86_64/ 3.10.0-862.el7.x86_64
+```
+
+解决后，编译时会报几个warning，无伤大雅。
+
+3. 内核寻找有问题，升级最新kernel。此方法非万不得已，不建议使用
 
 ``` bash
 yum install -y kernel
 ```
+
 
 
 ### bios中开启安全模式，禁止加载第三方驱动
