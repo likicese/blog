@@ -275,7 +275,6 @@ jenkins会自动比较项目之间的上下游关系
 ``` bash
 ssh root@192.168.1.1 "ps -ef | grep java | grep programName | grep -v bash | awk '{print \$2}' | xargs -i kill -9 {}"
 ```
-
 ### 使用了代理导致经常403
 
 报错：No valid crumb was included in the request
