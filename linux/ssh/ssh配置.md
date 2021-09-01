@@ -112,3 +112,9 @@ ssh 192.168.1.$i "sed -i 's/PasswordAuthentication yes/PasswordAuthentication no
 echo $i;
 done
 ```
+
+## 解决禁止打开ssh隧道问题
+
+报错：open failed: Administratively prohibited
+
+解决：把AllowTCPForwarding参数设置为`yes`
