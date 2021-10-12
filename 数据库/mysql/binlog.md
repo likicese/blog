@@ -35,4 +35,5 @@ mysql8之后，使用变量`binlog_expire_logs_seconds`和`expire_logs_days`
 ``` mysql
 set global binlog_expire_logs_seconds=604800;  # 设置变量，只留7天
 flush logs;  # 刷新
+mysqlbinlog --start-datetime="2021-09-18 09:15:00" --stop-datetime="2021-09-18 09:55:00" --base64-output=decode-rows --verbose mysql-binlog.000517 > 1.sql  # 导出该时间段的sql
 ```
