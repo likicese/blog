@@ -13,3 +13,12 @@ virsh shutdown centos-vm2
 virsh destroy centos-vm2
 ```
 
+## 磁盘相关
+
+```bash
+virsh attach-disk vm_centos /opt/test-disk.qcow2 vdb  # 挂载磁盘，实际在/dev中挂载磁盘的名称不一定是这个，也可能是vdc
+virsh detach-disk vm_centos --target vdb
+
+virsh attach-disk vm_centos /opt/test-disk.qcow2 --driver qemu --target vdb --mode shareable  # 另一种更多参数的挂载语法
+```
+
