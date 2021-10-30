@@ -15,7 +15,11 @@ gitlab-runner：gitlab-runner-13.1.1-1.x86_64
 gitlab-runner安装参考网址：https://mirrors.tuna.tsinghua.edu.cn/help/gitlab-runner
 
 
-## gitlab安装
+## 安装gitlab（源安装）
+
+
+
+## 安装gitlab（rpm安装）
 
 ``` bash
 wget --content-disposition https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/8/gitlab-ce-13.1.2-ce.0.el8.x86_64.rpm/download.rpm  # 下载安装包
