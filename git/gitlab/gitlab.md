@@ -180,3 +180,17 @@ location /admin {
 ``` bash
 gitlab-ctl hup nginx
 ```
+
+## 修改域名
+
+``` bash
+vim /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml  # git clone的域名配置
+vim /var/opt/gitlab/nginx/conf/gitlab-http.conf  # nginx的配置
+vim /etc/gitlab/gitlab.rb  # 总配置
+
+gitlab-ctl start
+```
+
+``` bash
+gitlab-ctl reconfigure  # 载入配置服务
+```
