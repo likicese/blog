@@ -211,6 +211,15 @@ done
 chown -R jenkins.jenkins $2
 ```
 
+## 批量替换git地址和验证方式
+
+将会替换全部项目
+
+``` bash
+sed -i "s#        <credentialsId>tpZxcAtmqaJKZoADzJFadafefafe</credentialsId>#        <credentialsId>ESwdueOlMToZV3XE0GEy</credentialsId>#g" /var/lib/jenkins/jobs/*/config.xml
+sed -i "/        <url>.*<\/url>/ s/https:\/\/gitlab.example.com\//git@gitlab.example.com:/g" /var/lib/jenkins/jobs/*/config.xml
+```
+
 ## 自动构建
 
 [参考](https://blog.csdn.net/xlgen157387/article/details/76216351)
