@@ -58,8 +58,6 @@ rpm --scripts -qp jenkins-2.274-1.1.noarch.rpm > jenkins.log
 
 然后在重新安装。
 
-
-
 ## 更换清华插件源
 
 ### 在web中修改更新源
@@ -289,3 +287,16 @@ ssh root@192.168.1.1 "ps -ef | grep java | grep programName | grep -v bash | awk
 报错：No valid crumb was included in the request
 
 解决：jenkins -> 系统管理 -> 全局安全配置 -> CSRF Protection -> 勾选（Enable proxy compatibility）
+
+## 更新
+
+假如jenkins是使用rpm源安装
+
+```bash
+systemctl stop jenkins
+find / -name jenkins.war  # 搜寻war包的位置
+cd /opt/
+wget --no-check-certificate https://updates.jenkins.io/download/war/2.303.2/jenkins.war  # 下载war包
+mv jenkins.war /usr/lib/jenkins/
+systemctl start jenkins
+```

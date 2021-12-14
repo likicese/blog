@@ -103,6 +103,14 @@ iptables-save > /etc/sysconfig/iptables-save  # 将策略保存到文件中。�
 echo 'iptables-restore < /etc/sysconfig/iptables-save' >> /etc/rc.d/rc.local  # 设置开机自动加载策略，仅执行一次即可
 ```
 
+## 网络转换记录
+
+```bash
+cat /proc/net/nf_conntrack
+```
+
+
+
 ## 例子
 
 ### 仅允许192.168.1.0/24的流量访问80端口
@@ -116,5 +124,12 @@ echo 'iptables-restore < /etc/sysconfig/iptables-save' >> /etc/rc.d/rc.local  # 
 ```bash
 iptables -A INPUT -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -j REJECT
+```
+
+### 做DNAT
+
+```bash
+# 将发往192.168.1.101:5022的数据包做DNAT，发给192.168.1.100:22。连接192.168.1.101:5022如同连接192.168.1.100:22。回包的时候，自动做SNAT
+iptables -t nat -A OUTPUT -p tcp -d 192.168.1.101 --dport 5022 -j DNAT --to-destination 192.168.1.100:22
 ```
 

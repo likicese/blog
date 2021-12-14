@@ -20,5 +20,7 @@ virsh attach-disk vm_centos /opt/test-disk.qcow2 vdb  # 挂载磁盘，实际在
 virsh detach-disk vm_centos --target vdb
 
 virsh attach-disk vm_centos /opt/test-disk.qcow2 --driver qemu --target vdb --mode shareable  # 另一种更多参数的挂载语法
+
+qemu-img convert -O qcow2 windows.qcow2 windows-1.qcow2  # 压缩磁盘空间。如果磁盘中含有快照，则新磁盘会卡在196K。把磁盘中的快照删除即可
 ```
 

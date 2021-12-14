@@ -35,10 +35,10 @@ EOF
 ## 添加配置
 
 ``` bash
-mkdir /var/log/ansiable/
+mkdir /var/log/ansible/
 cat >> /etc/ansible/ansible.cfg << EOF
 host_key_checking = False
-log_path = /var/log/ansiable/ansible.log
+log_path = /var/log/ansible/ansible.log
 EOF
 
 ```

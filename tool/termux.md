@@ -29,9 +29,10 @@ termux-wake-lock  # 切换到后台运行，依旧保持运行
 以下以运行ubuntu为例
 
 ```
-apt install -y proot git
+apt install -y proot git wget
 cd ~
 git clone https://github.com/MFDGaming/ubuntu-in-termux.git
+cd ubuntu-in-termux/
 bash ./ubuntu.sh -y
 ./startubuntu.sh  # 启动ubuntu，并切换到ubuntu的终端
 ```
