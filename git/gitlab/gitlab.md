@@ -37,6 +37,14 @@ firewall-cmd --zone=public --add-port=8081/tcp --permanent
 firewall-cmd --reload
 ```
 
+## 命令
+
+``` bash
+gitlab-ctl stop  # 停止所有服务
+gitlab-ctl start
+
+gitlab-ctl hup nginx  # 重启nginx
+```
 
 ## gitlab修改root密码
 
