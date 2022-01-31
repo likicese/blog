@@ -58,13 +58,23 @@ git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch ./xxx
 git push origin --force --all  # 强制推送到远程
 ```
 
+## 删除旧分支，创建新分支,推送远程
+
+``` bash
+git push origin --delete release
+git branch --set-upstream-to=origin/fix fix
+git pull
+git checkout release
+git push origin release:release
+```
+
 ## 其他操作
 
 ```bash
 git ls-files  # 查看已经提交的文件
 ```
 
-### git clone
+## git clone
 
 ```bash
 git clone https://github.com/xxx.xxx.git  # 下载代码
@@ -255,14 +265,3 @@ git show 0.1v  # 查看名为0.1v的tag信息
 git push 0.1v  # 将名为0.1v的tag推送到远端
 ```
 
-## 例子
-
-### 删除旧分支，创建新分支,推送远程
-
-``` bash
-git push origin --delete release
-git branch --set-upstream-to=origin/fix fix
-git pull
-git checkout release
-git push origin release:release
-```
