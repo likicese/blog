@@ -9,12 +9,31 @@ flush logs;  # 重新写入一个日志文件
 show binary logs;  # 获取文件列表
 show binlog events;  # 查看第一个binlog文件内容
 show binlog events in "mysql-binlog.000517";  # 查看指定文件内容
+show variables like 'log_bin';  # 查看binlog是否开启
 ```
 
 在linux命令行中执行一下命令
 
 ```bash
 mysqlbinlog --start-datetime='2020-12-15 00:00:00' --stop-datetime='2020-12-25 23:23:23' -d mydbname mysql-binlog.000517  # 查看名为mysql-binlog.000517的文件内容
+```
+
+## 关闭binlog
+
+编辑文件/etc/my.cnf，在[mysqld]块下，添加skip-log-bin，注释掉binlog相关配置
+
+如下所示
+
+``` conf
+[mysqld]
+
+……
+
+skip-log-bin
+# log-bin=mysql-bin
+# binlog-format=ROW
+
+……
 ```
 
 ## 维护
