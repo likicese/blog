@@ -50,3 +50,14 @@ $acl.SetAccessRule($systemRule)
 $acl | Set-Acl
 ```
 
+## 排错
+
+### xshell5无法连入
+
+解决：在sshd_config文件中，添加
+
+``` config
+KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1
+```
+
+注意：添加的语句应该在语句Match Group administrators之前，否则将导致报错：Directive 'KexAlgorithms' is not allowed within a Match block
