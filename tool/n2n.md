@@ -183,6 +183,7 @@ set N2N_WORK="C:\n2n\"
 start cmd /k "cd %N2N_WORK% && edge.exe -a 192.168.2.2 -s 255.255.255.0 -c netname -k password -l 144.144.144.144:12345"
 ```
 
+需要使用n2n时，执行批处理文件即可
 
 
 ## 报错处理
@@ -266,3 +267,52 @@ Either remove the CMakeCache.txt file and CMakeFiles directory or choose a diffe
 解决：
 
 清除cmake命令生成的文件，重新cmake
+
+## 打通两个局域网
+
+### 需求
+
+现有2个异地网络，需要打通。
+
+位于A地的网络为192.168.1.0/24。
+
+位于B地的网络为192.168.2.0/24。
+
+supernode服务地址是111.111.111.111:443
+
+A地linux机器的IP地址是：192.168.1.10
+
+B地linux机器的IP地址是：192.168.2.10
+
+[参考](https://zhuanlan.zhihu.com/p/136794983)
+
+### 实现
+
+在A、B两地的linux机器上编译安装n2n。
+
+A地机器执行以下命令：
+
+```bash
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf  # 添加内核转发参数
+sysctl -p  # 启用内核转发
+/usr/local/sbin/edge -d edge -a 192.168.3.1 -s 255.255.255.0 -c A-B-con -k 123456 -l 111.111.111.111:443 -n 192.168.2.0/24:192.168.3.2 -r  # 主要在-n和-r参数。-n会创建路由，-r允许数据转发
+```
+
+B地机器执行以下命令：
+
+```bash
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf  # 添加内核转发参数
+sysctl -p  # 启用内核转发
+/usr/local/sbin/edge -d edge -a 192.168.3.2 -s 255.255.255.0 -c A-B-con -k 123456 -l 111.111.111.111:443 -n 192.168.1.0/24:192.168.3.1 -r  # 主要在-n和-r参数。-n会创建路由，-r允许数据转发
+```
+
+在两地的路由器上各添加一条静态路由表
+
+A地：发往192.168.2.0/24的数据包转发给192.168.1.10
+
+B地：发往192.168.1.0/24的数据包转发给192.168.2.10
+
+
+
+处理到这一步，通常情况下，即可打通两地的网络。
+
