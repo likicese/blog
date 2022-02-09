@@ -32,9 +32,27 @@
 "cursorColor": "#000000",  /* 光标的颜色 */
 
 "startingDirectory" = null,  /* 设置打开终端的目录。默认为用户目录。此设置会改为当前目录打开终端 */
+```
+## 完整的属性建议
 
-"largePasteWarning": false,  /* 禁用粘贴文字大于5KB时的提醒框 */
-"multiLinePasteWarning": false,  /* 禁用粘贴文字存在换行符时的提醒框 */
+``` json
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "sendInput", 
+                "input": "ssh 192.168.1.2\ntail -f /var/log/nginx/access.log\n"
+            },
+            "name": "查看nginx的日志",
+            "keys": "ctrl+alt+9"
+        }
+    ],
+    "largePasteWarning": false,  /* 禁用粘贴文字大于5KB时的提醒框 */
+    "multiLinePasteWarning": false,  /* 禁用粘贴文字存在换行符时的提醒框 */
+}
 ```
 
 ## Git Bash的设置
