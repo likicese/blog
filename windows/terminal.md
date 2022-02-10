@@ -76,6 +76,16 @@
 },
 ```
 
+## Git-bash闪屏
+
+当前用户生效
+
+``` bat
+echo "set bell-style none" >> ~/.inputrc
+```
+
+修改Git安装目录下/etc/inputrc文件，一般位于`C:\Program Files\Git`。将`set bell-style visible`改成`set bell-style none`即可
+
 ## 快捷键
 
 shift + ctrl + w ：关闭当前标签页
