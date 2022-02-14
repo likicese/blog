@@ -300,3 +300,14 @@ wget --no-check-certificate https://updates.jenkins.io/download/war/2.303.2/jenk
 mv jenkins.war /usr/lib/jenkins/
 systemctl start jenkins
 ```
+
+## jenkins用户登录
+
+修改`/etc/passwd`文件：
+
+```
+原：jenkins: x:997:994:Jenkins Automation Server:/var/lib/jenkins:/bin/false
+
+改后：jenkins:x:997:994:Jenkins Automation Server:/var/lib/jenkins:/bin/bash
+```
+
