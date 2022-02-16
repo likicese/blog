@@ -101,6 +101,12 @@ fi
 done
 ```
 
+对于不允许密码登录的机器，在目标机器上执行：
+
+``` bash
+sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config; systemctl restart sshd  # 禁止密码登录
+```
+
 ## 批量禁止密码登录
 
 ```
