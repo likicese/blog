@@ -199,3 +199,27 @@ rm -f ~/.bash_history
 
 poweroff
 ```
+
+### 压缩镜像
+
+去宿主机执行：
+
+```bash
+qemu-img convert -c -O qcow2 old.qcow2 new.qcow2
+```
+
+## 应用程序支持
+
+### jdk
+
+```bash
+# 假定有jdk的rpm安装包
+yum localinstall jdk-8u181-linux-x64.rpm
+
+cat >> /etc/profile << EOF
+export JAVA_HOME=/usr/java/jdk1.8.0_181
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+export PATH=$JAVA_HOME/bin:$PATH
+EOF
+```
