@@ -129,3 +129,73 @@ systemctl disable auditd.service
 systemctl stop tuned
 systemctl disable tuned
 ```
+
+## 服务器参数调优
+
+```bash
+cat >> /etc/security/limits.conf << EOF
+*       soft    nofile  1048560
+*       hard    nofile  1048560
+*       soft    nproc   1048560
+*       hard    nproc   1048560
+EOF
+
+sed -i "s/*          soft    nproc     4096/*          soft    nproc     1048560/g" /etc/security/limits.d/20-nproc.conf
+
+cat >> /etc/sysctl.conf << EOF
+net.core.somaxconn = 16384
+net.ipv4.tcp_max_syn_backlog = 8192
+net.ipv4.tcp_syncookies= 1	# 打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效
+net.ipv4.tcp_tw_reuse= 1  # 减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接
+net.inet.udp.checksum = 1  # 防止不正确的udp包
+EOF
+```
+
+## 安全设置
+
+```bash
+SSHD_CONFIG='/etc/ssh/sshd_config'
+sed -i '/#PasswordAuthentication yes/d' ${SSHD_CONFIG}
+sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' ${SSHD_CONFIG}
+sed -i 's/#UseDNS yes/UseDNS no/g' ${SSHD_CONFIG}
+```
+
+## 清理
+
+分为两种情况
+
+### 未开启trim
+
+在虚拟机执行：
+
+```bash
+yum clean all
+rm -rf /var/cache/yum
+rm -rf /var/log/*
+dd if=/dev/zero of=/boot/zero.file oflag=append conv=notrunc
+dd if=/dev/zero of=/boot/efi/zero.file oflag=append conv=notrunc
+dd if=/dev/zero of=~/zero.file oflag=append conv=notrunc
+rm -f /boot/zero.file
+rm -f /boot/efi/zero.file
+rm -f ~/zero.file
+history -c; history -w
+rm -f ~/.bash_history
+
+poweroff
+```
+
+### 开启trim
+
+直接在虚拟机执行：
+
+```bash
+yum clean all
+rm -rf /var/cache/yum
+rm -rf /var/log/*
+history -c; history -w
+rm -f ~/.bash_history
+fstrim -av
+rm -f ~/.bash_history
+
+poweroff
+```
