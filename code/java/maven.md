@@ -31,3 +31,34 @@ mvn archetype:generate -DgroupId=com.company.code -DartifactId=testdevops -Darch
   </properties>
 </project>
 ```
+
+## 配置
+
+项目的pom.xml文件中可增加如下配置，即可用命令`mvn deploy`推包。否则需要指定推包地址。
+
+```xml
+<project>
+    <distributionManagement>
+        <repository>
+            <id>exmple-release</id>
+            <name>display</name>
+            <url>https://nexus.exmple.com/repository/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>exmple-snapshot</id>
+            <name>display</name>
+            <url>https://nexus.exmple.com/repository/snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
+```
+
+## 推包
+
+根据pom.xml文件设置，版本号带snapshot的包会被推到snapshot仓库。
+
+若要推到release仓库，请执行如下命令，“0.0.2-release”版本号根据项目自身版本号指定，更改版本号进行推送
+
+```bash
+mvn deploy versions:set -DnewVersion=0.0.2-release
+```
