@@ -62,3 +62,27 @@ mvn archetype:generate -DgroupId=com.company.code -DartifactId=testdevops -Darch
 ```bash
 mvn deploy versions:set -DnewVersion=0.0.2-release
 ```
+## 上传文件
+
+在settings.xml的servers模块中添入以下内容，以验证用户名和密码
+
+``` xml
+<server>
+    <id>exmple-release</id>
+    <username>exmple-release</username>
+    <password>123456</password>
+</server>
+```
+
+执行以下的shell命令
+
+``` bash
+mvn deploy:deploy-file \
+-DgroupId=test \
+-DartifactId=test \
+-Dversion=1.0.0 \
+-Dpackaging=jar \
+-Dfile=test-1.0.0.jar \
+-Durl=https://nexus.exmple.com/repository/release/ \
+-DrepositoryId=exmple-release
+```
