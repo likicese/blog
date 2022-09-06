@@ -20,7 +20,7 @@ n2n是一个加密2层专用网络，将公网转换为私网。其使用udp协�
 ubuntu:
 
 ``` shell
-apt install cmake gcc-c++ build-essential libssl-dev
+apt install cmake gcc g++ build-essential libssl-dev
 ```
 
 centos

@@ -37,7 +37,7 @@ npm install --prefix /opt/lib -g express  # 换一个全局路径安装express�
 ### 设置模块安装的位置
 
 ``` bash
-npm config set registry https://registry.npm.taobao.org
+npm config set registry https://registry.npmmirror.com
 npm set cache D:\nodejs\node_cache
 npm set prefix D:\nodejs\node_global  # D:\nodejs\node_global 需要设置到环境变量，才能将安装的软件直接在cmd中使用
 npm config ls

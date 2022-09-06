@@ -311,3 +311,17 @@ systemctl start jenkins
 改后：jenkins:x:997:994:Jenkins Automation Server:/var/lib/jenkins:/bin/bash
 ```
 
+## jenkins用户权限插件
+
+安装改插件：Role-based Authorization Strategy
+
+## pipline
+
+### 设置build名字和描述
+
+安装插件[Build Name and Description Setter](https://plugins.jenkins.io/build-name-setter/)
+
+```
+def PUSH_TIME = "${sh(script:'cd \${project}; git show --pretty=format:\'%ci %cr\' | head -1', returnStdout: true)}"  # 设置变量
+```
+

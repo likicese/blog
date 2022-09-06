@@ -83,5 +83,20 @@ WantedBy=multi-user.target
 
 ```bash
 dig @192.168.1.2 www.dev.example.org  # coredns安装在192.168.1.2上
+sed -i "1i nameserver 192.168.1.2" /etc/resolv.conf  # 更改DNS域名
 ```
+
+## 踩坑记录
+
+### reload指令无效
+
+需要修改SOA才能生效。若比较着急，可以直接重启
+
+### directory指令无效
+
+对文件名似乎有要求，可能是要求db开头
+
+### coredns已启动，无法解析域名
+
+情况比较多。他的默认配置文件是工作路径下的Corefile，如果工作路径下，不存在该文件，也能启动，此时无法按照配置文件的要求解析域名。
 

@@ -1,7 +1,7 @@
-# systemd
+# dsystemd
 
 ## 配置文件
- 
+
 配置文件用 `.service` 后缀名结尾，示例如下
 
 ``` shell
@@ -19,3 +19,31 @@ TimeoutSec=60s  # 最长启动时间。超时后，首次发送SIGTERM信号，�
 [Install]
 WantedBy=multi-user.target
 ```
+
+参考配置文件
+
+```bash
+useradd e-job -M -s /bin/false  # 创建一个名为e-job的用户，不允许登录和无家目录
+```
+
+
+
+```
+[Unit]
+Description=job
+After=syslog.target
+
+[Service]
+User=e-job
+Group=e-job
+Environment=JAVA_HOME=/usr/java/default
+WorkingDirectory=/opt/job
+ExecStartPre=/usr/bin/chown -R e-job:e-job /opt/job
+PermissionsStartOnly=true
+ExecStart=/usr/java/default/bin/java -Xms512m -Xmx3096m -jar /opt/job/job.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+```
+

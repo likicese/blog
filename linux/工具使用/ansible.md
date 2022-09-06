@@ -102,6 +102,8 @@ ansible testhost1 -m script -a "/opt/1.sh" >> /opt/ansible.log  # 在远程主�
 
 ``` bash
 ansible-playbook /opt/1.yaml
+ansible-playbook /opt/1.yaml --limit 192.168.1.10  # 只选择192.168.1.10这台机器
+ansible-playbook /opt/1.yaml --step  # 每一个task输入y或n在判定是否执行
 ```
 
 显示执行结果的例子
@@ -117,3 +119,24 @@ ansible-playbook /opt/1.yaml
     - debug:
         var: shell_result.stdout_lines
 ```
+
+### 在远程主机安装软件
+
+```yaml
+- hosts: dev:!192.168.1.11:!192.168.1.15  # 排除掉192.168.1.11和192.168.1.15这两台机器
+  gather_facts: no  # 关闭获取硬件信息
+  tasks:
+  - name: 拷贝文件到远程机器
+    copy:
+      src: /tmp/downloads/node.rpm
+      dest: /tmp/node.rpm
+  - name: 安装node
+    shell: sudo yum install -y /tmp/node.rpm
+  - name: 查看软件
+    shell: rpm -q node
+    register: show_software
+  - name: 启动node
+    shell: sudo systemctl start node
+  - debug: var=show_software.stdout_lines  # 输出命令执行结果
+```
+
