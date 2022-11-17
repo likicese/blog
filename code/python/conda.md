@@ -1,5 +1,13 @@
 # conda
 
+## 下载
+
+[北京外国语大学开源软件镜像站点](https://mirrors.bfsu.edu.cn/anaconda/)
+
+## 添加源
+
+[参考](https://mirrors.bfsu.edu.cn/help/anaconda/)
+
 ## 系统环境变量
 
 在环境变量中，添加：

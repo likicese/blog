@@ -50,6 +50,15 @@ $acl.SetAccessRule($systemRule)
 $acl | Set-Acl
 ```
 
+## 允许公钥登录的另一种可能
+
+注释掉以下两行
+
+```
+#Match Group administrators
+#       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+```
+
 ## 排错
 
 ### xshell5无法连入
