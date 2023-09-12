@@ -40,7 +40,6 @@ cat >> /etc/ansible/ansible.cfg << EOF
 host_key_checking = False
 log_path = /var/log/ansible/ansible.log
 EOF
-
 ```
 
 ## hosts
@@ -65,16 +64,20 @@ host[a-z]
 
 ### yaml风格
 
+[参考](https://cn-ansibledoc.readthedocs.io/zh_CN/latest/user_guide/intro_inventory.html)
+
 ``` config
 vms:
-    children:
-        vms_1:
-            hosts:
-                192.168.1.[1:255]:
-        vms_2and3:
-            hosts:
-                192.168.2.[1:255]:
-                192.168.3.[1:255]:
+  children:
+    vms_1:
+      hosts:
+        192.168.1.[1:255]:
+      vars:
+        ansible_user: centos
+    vms_2and3:
+      hosts:
+        192.168.2.[1:255]:
+        192.168.3.[1:255]:
 ```
 
 ## 命令
@@ -120,6 +123,26 @@ ansible-playbook /opt/1.yaml --step  # 每一个task输入y或n在判定是否�
         var: shell_result.stdout_lines
 ```
 
+### 指定主机名或主机组且远程为root用户
+
+文件如下
+
+```yaml
+- hosts: "{{ variable_host }}"
+  gather_facts: no
+  become: yes
+  become_user: root
+  tasks:
+  - name: 注入hosts
+    shell: echo "192.168.1.10 example.com" >> /etc/hosts;
+```
+
+利用变量注入
+
+```bash
+ansible-playbook -e variable_host=app ansible_example.yaml
+```
+
 ### 在远程主机安装软件
 
 ```yaml
@@ -137,6 +160,6 @@ ansible-playbook /opt/1.yaml --step  # 每一个task输入y或n在判定是否�
     register: show_software
   - name: 启动node
     shell: sudo systemctl start node
-  - debug: var=show_software.stdout_lines  # 输出命令执行结果
+  - debug: var=show_software.stdout_lines  # 输出命令执行结果，必须在此位置
 ```
 
