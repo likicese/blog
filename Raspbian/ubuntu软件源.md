@@ -1,6 +1,6 @@
 # ubuntu
 
-## 源
+## 软件源
 
 在树莓派上，请使用arm64源。
 
@@ -38,6 +38,6 @@ deb-src http://ports.ubuntu.com/ubuntu-ports/ bionic main universe restricted
 
 sudo wget -O /etc/apt/sources.list https://repo.huaweicloud.com/repository/conf/Ubuntu-Ports-bionic.list
 
-## 中科院
+### 中科院源
 
 [ISRC 镜像站 · ISRC - 镜像站 (iscas.ac.cn)](https://mirror.iscas.ac.cn/)
