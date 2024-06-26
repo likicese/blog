@@ -93,7 +93,36 @@ data_volume: /data/harbor
 ./install.sh --with-trivy
 ```
 
+同时拉起一个镜像扫描器
+
 若安装失败，需停止并删除全部容器，清空数据，再重新安装。避免有残余数据影响功能。
+
+## 配置检测启动状态脚本
+
+服务器频繁重启的话，harbor可能重启不了。此时需要进行检测。
+
+脚本文件`/data/script/check_harbor.sh`内容
+
+``` shell
+#!/bin/bash
+
+# 定时语句：*/5 * * * * /data/script/check_harbor.sh >> /data/script/check_harbor.log 2>&1
+
+# 定义 URL
+URL="http://127.0.0.1:8082"
+
+# 发送 GET 请求并获取状态码
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" $URL)
+
+# 如果状态码不是 200，则重启 Docker Compose 中的服务
+if [ $STATUS -ne 200 ]; then
+    echo "Status code is $STATUS. Restarting Docker Compose..."
+    cd /data/harbor-install/
+    /usr/local/bin/docker-compose start
+else
+    echo "Status code is $STATUS. No action needed."
+fi
+```
 
 ## 配置docker仓库代理
 
