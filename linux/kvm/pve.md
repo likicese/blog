@@ -158,9 +158,20 @@ PROMPT_COMMAND='(umask 000; msg=\$(history 1 | { read x y; echo \$y; }); echo [\
 export HISTTIMEFORMAT HISTSIZE HISTFILESIZE PROMPT_COMMAND
 EOF
 
+# 调整工具
+sed -i 's/set mouse=a/set mouse=/g' /usr/share/vim/vim90/defaults.vim  # 禁用vim的鼠标
+
 # 安装qemu监控软件，并设置开机自启动，以便获取IP
 apt install qemu-guest-agent -y
 systemctl enable --now qemu-guest-agent  # 或/lib/systemd/systemd-sysv-install enable qemu-guest-agent
+```
+
+##### 调整其他
+
+``` bash
+sed -i 's/ - update_etc_hosts/#  - update_etc_hosts/g' /etc/cloud/cloud.cfg  # 注释掉hosts，防止每次重启机器时都重置hostname文件
+sed -i 's/#LLMNR=yes/LLMNR=no/' /etc/systemd/resolved.conf  # 关闭对5355的监听
+sed -i '$a\bindcmdaddress ::1' /etc/chrony/chrony.conf  # 关闭chrony对323的监听
 ```
 
 ##### 关闭不安全的root登录
@@ -262,3 +273,15 @@ cat > /boot/efi/startup.nsh << EOF
 \EFI\debian\grubaa64.efi
 EOF
 ```
+
+## 常用排错
+
+### 防火墙
+
+防火墙使用了iptables控制流量，且会让网卡存在一定的隔离。以下为常用的排错命令
+
+``` 
+tcpdump -n -i vmbr0 icmp
+tcpdump -n icmp
+```
+
